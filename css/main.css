@@ -1,0 +1,8 @@
+/* 
+This is the main css file.
+CSS in this file will be used across the entire site.
+*/
+
+* {
+  box-sizing: border-box;
+}
