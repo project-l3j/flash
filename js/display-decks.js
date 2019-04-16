@@ -52,14 +52,3 @@ for (let i = 0; i < decksInLocalStorage.length; i++) {
     }
   }
 }
-
-
-// Create a column
-
-// In the column you want to create the card that represents the deck
-
-// Display the name and description of the deck
-
-// If row is full then display the 'make a new deck' in a new row
-
-// If the row is not full then display the 'make a new deck' in the same row
