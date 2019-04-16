@@ -27,7 +27,18 @@ for (let i = 0; i < decksInLocalStorage.length; i++) {
   var card = document.createElement('div');
   card.className = 'card';
   card.id = decksInLocalStorage[i].deckName;
+  // card.textContent = decksInLocalStorage[i].deckName;
 
+  var displayName = document.createElement('h2');
+  displayName.className = 'title';
+  displayName.textContent = decksInLocalStorage[i].deckName;
+
+  var displayDescription = document.createElement('p');
+  displayDescription.className = 'description';
+  displayDescription.textContent = decksInLocalStorage[i].deckDescription;
+
+  card.appendChild(displayName);
+  card.appendChild(displayDescription);
   col.appendChild(card);
   row.appendChild(col);
 
@@ -39,6 +50,17 @@ for (let i = 0; i < decksInLocalStorage.length; i++) {
     var createDeckCard = document.createElement('div');
     createDeckCard.className = 'card';
     createDeckCard.id = 'create-deck';
+
+    var displayNameCreate = document.createElement('h2');
+    displayNameCreate.className = 'name-create';
+    displayNameCreate.textContent = 'Create a New Flashcard Deck';
+
+    var displayDescriptionCreate = document.createElement('p');
+    displayDescriptionCreate.className = 'description-create';
+    displayDescriptionCreate.textContent = 'Create a deck of flashcards to help you learn anything from languages to math';
+
+    createDeckCard.appendChild(displayNameCreate);
+    createDeckCard.appendChild(displayDescriptionCreate);
     lastCol.appendChild(createDeckCard);
 
     if (i % 2 !== 0) { // if last index is even
@@ -52,3 +74,4 @@ for (let i = 0; i < decksInLocalStorage.length; i++) {
     }
   }
 }
+

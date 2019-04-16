@@ -121,7 +121,7 @@ var awsCardInformation = {
   }]
 };
 
-var amazonStudyCards = [leadershipCards, awsCardInformation];
+var amazonStudyCards = [leadershipCards, awsCardInformation, leadershipCards];
 
 //Decks is the array that holds all of the decks
 var allDecks = [];
