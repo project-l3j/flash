@@ -1,9 +1,9 @@
 'use strict';
 
 var leadership_cards = {
-  deckName : 'Amazon Leader Principles',
+  deckName : 'Amazon Leadership Principles',
   deckDescription : 'Cards to help educate on the Amazon leadership priciples',
-  cards : [{
+  deckCards : [{
     cardAnswer : 'Customer Obsession',
     cardQuestion : 'Leaders start with the customer and work backwards. They work vigorously to earn and keep customer trust. Although leaders pay attention to competitors, they obsess over customers.',
     cardViews : '0',
@@ -78,7 +78,7 @@ var leadership_cards = {
 var aws_card_information = {
   deckName : 'AWS Cards',
   deckDescription : 'Cards to help understand the different AWS tools',
-  cards: [{
+  deckCards: [{
     cardAnswer : 'EC2',
     cardQuestion :  'Amazon Virtual Servers	',
     cardViews : '0',
@@ -143,7 +143,6 @@ function Card(cardQuestion, cardAnswer, cardViews = 0, cardCorrect = 0) {
   };
 }
 
-
 //Constructor Function for Decks
 function SingleDeck(deckName, deckDescription) {
   console.log(typeof(deckName));
@@ -155,24 +154,48 @@ function SingleDeck(deckName, deckDescription) {
     var addNewCard = new Card(cardQuestion, cardAnswer, cardViews, cardCorrect);
     this.deckCards.push(addNewCard);
   };
-
 }
 
 // Creates a Deck From the DeckObject
 function createDeckFromObject(deckObject){
+  console.log('cdfo: ', deckObject)
+  if(!deckObject || deckObject.length === 0) return;
   //create a new deck
   var newDeck = new SingleDeck(deckObject.deckName, deckObject.deckDescription);
 
   //this loop populates the deck of cards
-  let numOfCards = deckObject.cards.length;
+  let numOfCards = deckObject.deckCards.length;
   for(let i = 0; i<numOfCards; i++){
-    let cardQuestion = deckObject.cards[i].cardQuestion;
-    let cardAnswer = deckObject.cards[i].cardAnswer;
-    let cardViews = deckObject.cards[i].cardViews;
-    let cardCorrect = deckObject.cards[i].cardCorrect;
+    let cardQuestion = deckObject.deckCards[i].cardQuestion;
+    let cardAnswer = deckObject.deckCards[i].cardAnswer;
+    let cardViews = deckObject.deckCards[i].cardViews;
+    let cardCorrect = deckObject.deckCards[i].cardCorrect;
     newDeck.addCardtoDeck(cardQuestion, cardAnswer, cardViews, cardCorrect);
   }
   return newDeck;
 }
 
 console.log(createDeckFromObject(amazon_study_cards[0]));
+
+// For each deck object, turn it into a class(constructor) and push it into the allDecks array
+function loadDecksIntoAllDecks(studyCardArray){
+  //if local storage exists and contains information store that into study_card_array (this will overwrite the default value)
+  let deckToLoad;
+  if(localStorage.length !== 0 ){
+    deckToLoad = JSON.parse(localStorage.getItem('decks'));
+    console.log('ls: ', deckToLoad);
+  }else{
+    deckToLoad = studyCardArray;
+    console.log('hc: ', deckToLoad);
+  }
+  console.log('test: ', deckToLoad);
+  //convert objects to classes
+  allDecks = [];
+  let numOfDeckObjects = deckToLoad.length;
+  for(let i=0; i < numOfDeckObjects; i++){
+    let tempDeck = createDeckFromObject(deckToLoad[i]);
+    allDecks.push(tempDeck);
+  }
+}
+
+console.log(loadDecksIntoAllDecks(amazon_study_cards));
