@@ -27,7 +27,7 @@ function handleDeckFormSubmit(event){
   // TODO: Validate and make sure deck name doesn't exist already
   let deckName = document.getElementById('deckName').value;
   let deckDescription = document.getElementById('deckDescription').value;
-  
+
   // This checks to see if the name exists
   if(doesDeckExist(deckName)){
     // Alert for matching deckname
@@ -55,10 +55,8 @@ function handleCardFormSubmit(event){
   let cardQuestionElement = document.getElementById('cardQuestion');
   let cardAnswerElement = document.getElementById('cardAnswer');
 
-  // Create card and add to desk
-  let tempCard = new Card(cardQuestionElement.value, cardAnswerElement.value, 0, 0);
   // Add card to deck
-  tempDeck.addCardtoDeck(tempCard);
+  tempDeck.addCardtoDeck(cardQuestionElement.value, cardAnswerElement.value, 0, 0);
 
   // Clear answers
   cardQuestionElement.value = '';
