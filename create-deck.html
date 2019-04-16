@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Create New Deck</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <p>Create a new deck</p>
+  <div>
+    <form id="deck">
+      <label for="deckName">Deck Name:</label>
+      <input type="text" id="deckName" name="deckName" required/>
+      <label for="deckDescription">Deck Description</label> 
+      <input type="text" id="deckDescription" name="deckDescription" required/>
+      <input type="submit" value="Create Deck" />
+    </form>
+
+    <form id="card">
+      <fieldset>
+        <legend>Card</legend>
+        <label for="cardQuestion">Card Question:</label>
+        <textarea id="cardQuestion" name="cardQuestion" rows="4" cols="30" form="card" placeholder="Enter text here..." required></textarea>
+        <label for="cardAnswer">Card Answer:</label>
+        <input type="text" id="cardAnswer" name="cardAnswer" required/>
+        <input type="submit" value="Add To Deck" />
+      </fieldset>
+    </form>
+    <button id="deckDoneButton">Done adding cards</button>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/create-deck.js"></script>
+</body>
+</html>
