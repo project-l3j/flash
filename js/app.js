@@ -197,7 +197,16 @@ function saveDecks(){
   }
 }
 
-//Driver Section
-
-
+// This will check and see if the deck exists before adding.
+function doesDeckExist(deckName){
+  let deckLength = allDecks.length;
+  for(let i = 0; i < deckLength; i++){
+    //if there is a match of a deckName
+    if(allDecks[i].deckName === deckName){
+      return true;
+    }
+  }
+  //return false if you made it through without finding a match
+  return false;
+}
 
