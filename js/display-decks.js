@@ -2,51 +2,64 @@
 var test = loadDecksIntoAllDecks(amazonStudyCards);
 saveDecks();
 
-//Check the number of decks in local storage
-console.log('localStorage.length', localStorage.length);
+// Check the number of decks in local storage
 var decksInLocalStorage = JSON.parse(localStorage.getItem('decks'));
-console.log(decksInLocalStorage.length);
 
+// Based on the number of decks in local storage, create the number of rows needed. decksInLocalStorage % 2
+// If the remainder is 0 then number of decks is even
+// If the remainder is not 0 then number of decks is odd
 
-//Based on the number of decks in local storage, create the number of rows needed. decksInLocalStorage % 2
-//If the remainder is 0 then number of decks is even
-//If the remainder is not 0 then number of decks is odd
-
-var isEven = null;
-if (decksInLocalStorage.length % 2 === 0) {
-  isEven = true;
-} else {
-  isEven = false;
-}
-
-if (isEven) {
-  var numOfRows = decksInLocalStorage.length / 2;
-}
-
-// length of loop: numOfRows
-
-// after loop, add one more row w/ create new deck
+var mainElement = document.querySelector('main');
 
 for (let i = 0; i < decksInLocalStorage.length; i++) {
-  // if even number of decks, create a row
-  if (decksInLocalStorage.length % 2 === 0) {
-    // create row
-    // then append column w/ deck[i]
-    // then append column w/ deck[i + 1]
-  } 
 
-  
-  // then create second row
-  // append column w/ 'create new deck' card
+  var lastIndex = decksInLocalStorage.length - 1;
+
+  if (i % 2 === 0) { // if even
+    var row = document.createElement('div');
+    row.className = 'row';
+    mainElement.appendChild(row);
+  }
+
+  var col = document.createElement('div');
+  col.className = 'column';
+
+  var card = document.createElement('div');
+  card.className = 'card';
+  card.id = decksInLocalStorage[i].deckName;
+
+  col.appendChild(card);
+  row.appendChild(col);
+
+  if (i === lastIndex) { // check if final time through loop
+
+    var lastCol = document.createElement('div');
+    lastCol.className = 'column';
+
+    var createDeckCard = document.createElement('div');
+    createDeckCard.className = 'card';
+    createDeckCard.id = 'create-deck';
+    lastCol.appendChild(createDeckCard);
+
+    if (i % 2 !== 0) { // if last index is even
+      var lastRow = document.createElement('div');
+      lastRow.className = 'row';
+      lastRow.appendChild(lastCol);
+      mainElement.appendChild(lastRow);
+    } else { // if last index is odd
+      row.appendChild(lastCol);
+      mainElement.appendChild(row);
+    }
+  }
 }
 
 
-//Create a column
+// Create a column
 
-//In the column you want to create the card that represents the deck
+// In the column you want to create the card that represents the deck
 
-//Display the name and description of the deck
+// Display the name and description of the deck
 
-//If row is full then display the 'make a new deck' in a new row
+// If row is full then display the 'make a new deck' in a new row
 
-//If the row is not full then display the 'make a new deck' in the same row
+// If the row is not full then display the 'make a new deck' in the same row

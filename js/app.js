@@ -74,7 +74,7 @@ var leadershipCards = {
     cardViews : '0',
     cardCorrect : '0'
   }]
-}
+};
 var awsCardInformation = {
   deckName : 'AWS Cards',
   deckDescription : 'Cards to help understand the different AWS tools',
@@ -119,7 +119,7 @@ var awsCardInformation = {
     cardViews : '0',
     cardCorrect : '0'
   }]
-}
+};
 
 var amazonStudyCards = [leadershipCards, awsCardInformation];
 
@@ -196,8 +196,3 @@ function saveDecks(){
     localStorage.setItem('decks', JSON.stringify(allDecks));
   }
 }
-
-//Driver Section
-
-
-
