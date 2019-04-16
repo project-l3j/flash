@@ -120,6 +120,8 @@ var aws_card_information = {
     cardCorrect : '0'
   }]
 }
+
+
 var amazon_study_cards = [leadership_cards, aws_card_information];
 
 //Decks is the array that holds all of the decks
@@ -155,17 +157,22 @@ function SingleDeck(deckName, deckDescription) {
   };
 
 }
-console.log(aws_card_information.deckName)
-//Creating the AWS object
-var awsDeck = new SingleDeck(aws_card_information.deckName, aws_card_information.deckDescription);
 
-//Adding all the cards to the AWS Deck
-let numOfCards = aws_card_information.cards.length;
-for(let i = 0; i < numOfCards; i++){
-  let cardQuestion = aws_card_information.cards[i].cardQuestion;
-  let cardAnswer = aws_card_information.cards[i].cardAnswer;
-  let cardViews = aws_card_information.cards[i].cardViews;
-  let cardCorrect = aws_card_information.cards[i].cardCorrect;
-  awsDeck.addCardtoDeck(cardQuestion, cardAnswer, cardViews,cardCorrect);
+// Creates a Deck From the DeckObject
+function createDeckFromObject(deckObject){
+  //create a new deck
+  var newDeck = new SingleDeck(deckObject.deckName, deckObject.deckDescription);
+
+  //this loop populates the deck of cards
+  let numOfCards = deckObject.cards.length;
+  for(let i = 0; i<numOfCards; i++){
+    let cardQuestion = deckObject.cards[i].cardQuestion;
+    let cardAnswer = deckObject.cards[i].cardAnswer;
+    let cardViews = deckObject.cards[i].cardViews;
+    let cardCorrect = deckObject.cards[i].cardCorrect;
+    newDeck.addCardtoDeck(cardQuestion, cardAnswer, cardViews, cardCorrect);
+  }
+  return newDeck;
 }
-console.log(awsDeck);
+
+console.log(createDeckFromObject(amazon_study_cards[0]));
