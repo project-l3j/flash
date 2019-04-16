@@ -1,6 +1,6 @@
 'use strict';
 
-var leadership_cards = {
+var leadershipCards = {
   deckName : 'Amazon Leadership Principles',
   deckDescription : 'Cards to help educate on the Amazon leadership priciples',
   deckCards : [{
@@ -75,7 +75,7 @@ var leadership_cards = {
     cardCorrect : '0'
   }]
 }
-var aws_card_information = {
+var awsCardInformation = {
   deckName : 'AWS Cards',
   deckDescription : 'Cards to help understand the different AWS tools',
   deckCards: [{
@@ -121,8 +121,7 @@ var aws_card_information = {
   }]
 }
 
-
-var amazon_study_cards = [leadership_cards, aws_card_information];
+var amazonStudyCards = [leadershipCards, awsCardInformation];
 
 //Decks is the array that holds all of the decks
 var allDecks = [];
@@ -145,7 +144,6 @@ function Card(cardQuestion, cardAnswer, cardViews = 0, cardCorrect = 0) {
 
 //Constructor Function for Decks
 function SingleDeck(deckName, deckDescription) {
-  console.log(typeof(deckName));
   this.deckName = deckName;
   this.deckDescription = deckDescription;
   this.deckCards = [];
@@ -158,7 +156,6 @@ function SingleDeck(deckName, deckDescription) {
 
 // Creates a Deck From the DeckObject
 function createDeckFromObject(deckObject){
-  console.log('cdfo: ', deckObject)
   if(!deckObject || deckObject.length === 0) return;
   //create a new deck
   var newDeck = new SingleDeck(deckObject.deckName, deckObject.deckDescription);
@@ -175,20 +172,15 @@ function createDeckFromObject(deckObject){
   return newDeck;
 }
 
-console.log(createDeckFromObject(amazon_study_cards[0]));
-
 // For each deck object, turn it into a class(constructor) and push it into the allDecks array
 function loadDecksIntoAllDecks(studyCardArray){
   //if local storage exists and contains information store that into study_card_array (this will overwrite the default value)
   let deckToLoad;
-  if(localStorage.length !== 0 ){
+  if(localStorage.length > 0 ){
     deckToLoad = JSON.parse(localStorage.getItem('decks'));
-    console.log('ls: ', deckToLoad);
-  }else{
+  } else{
     deckToLoad = studyCardArray;
-    console.log('hc: ', deckToLoad);
   }
-  console.log('test: ', deckToLoad);
   //convert objects to classes
   allDecks = [];
   let numOfDeckObjects = deckToLoad.length;
@@ -198,4 +190,14 @@ function loadDecksIntoAllDecks(studyCardArray){
   }
 }
 
-console.log(loadDecksIntoAllDecks(amazon_study_cards));
+// This will save all decks to local storage
+function saveDecks(){
+  if(localStorage){
+    localStorage.setItem('decks', JSON.stringify(allDecks));
+  }
+}
+
+//Driver Section
+
+
+
