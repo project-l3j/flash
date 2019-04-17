@@ -209,10 +209,11 @@ function createDeckFromObject(deckObject){
 function loadDecksIntoAllDecks(studyCardArray){
   //if local storage exists and contains information store that into study_card_array (this will overwrite the default value)
   let deckToLoad;
-  if(localStorage.length > 0 ){
-    deckToLoad = JSON.parse(localStorage.getItem('decks'));
-  } else{
+  let checkIfDeckInStorage = localStorage.getItem('decks');
+  if(checkIfDeckInStorage === null){
     deckToLoad = studyCardArray;
+  } else {
+    deckToLoad = JSON.parse(checkIfDeckInStorage);
   }
   //convert objects to classes
   allDecks = [];
