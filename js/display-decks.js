@@ -28,8 +28,7 @@ function createDeckDisplay(){
 
     var card = document.createElement('div');
     card.className = 'card';
-    card.id = decksInLocalStorage[i].deckName;
-    // card.textContent = decksInLocalStorage[i].deckName;
+    card.setAttribute('data-id', i);
 
     var displayName = document.createElement('h2');
     displayName.className = 'title';
