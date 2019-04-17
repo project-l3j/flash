@@ -74,7 +74,7 @@ var leadershipCards = {
     cardViews : '0',
     cardCorrect : '0'
   }]
-}
+};
 var awsCardInformation = {
   deckName : 'AWS Cards',
   deckDescription : 'Cards to help understand the different AWS tools',
@@ -119,9 +119,9 @@ var awsCardInformation = {
     cardViews : '0',
     cardCorrect : '0'
   }]
-}
+};
 
-var amazonStudyCards = [leadershipCards, awsCardInformation];
+var amazonStudyCards = [leadershipCards, awsCardInformation, leadershipCards];
 
 //Decks is the array that holds all of the decks
 var allDecks = [];
@@ -147,7 +147,7 @@ function Card(cardQuestion, cardAnswer, cardViews = 0, cardCorrect = 0) {
   this.cardCounterReset = function(){
     this.cardCorrect = 0;
     this.cardViews = 0;
-  }
+  };
 }
 
 // Constructor Function for Decks
@@ -156,7 +156,7 @@ function SingleDeck(deckName, deckDescription) {
   this.deckDescription = deckDescription;
   this.deckCards = [];
 
-  // This function adds a card to the deck by creating it based off use parameters 
+  // This function adds a card to the deck by creating it based off use parameters
   // Then pushing it to the list of deckCards for this specific deck
   this.addCardtoDeck = function(cardQuestion, cardAnswer, cardViews = 0, cardCorrect = 0){
     var addNewCard = new Card(cardQuestion, cardAnswer, cardViews, cardCorrect);
@@ -183,7 +183,7 @@ function SingleDeck(deckName, deckDescription) {
       return true;
     }
     return false;
-  }
+  };
 
 }
 

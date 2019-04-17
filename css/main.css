@@ -6,3 +6,12 @@ CSS in this file will be used across the entire site.
 * {
   box-sizing: border-box;
 }
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; 
+}
+
+
