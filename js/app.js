@@ -210,3 +210,21 @@ function doesDeckExist(deckName){
   return false;
 }
 
+// This will shuffle the cards for studying
+function shuffle(sizeOfDeck){
+  let shuffledArray = [];
+  let unshuffledArray = [];
+  // Creates ordered deck
+  for (let index = 0; index < sizeOfDeck; index++) {
+    unshuffledArray[index] = index;
+  }
+  while(unshuffledArray.length > 0) {
+    // Get random number
+    let randomIndex = Math.floor(Math.random() * unshuffledArray.length);
+    // Push index to shuffled
+    shuffledArray.push(unshuffledArray[randomIndex]);
+    // Remove from unshuffled
+    unshuffledArray.splice(randomIndex, 1);
+  }
+  return shuffledArray;
+}
