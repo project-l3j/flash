@@ -291,9 +291,9 @@ function shuffle(sizeOfDeck){
   return shuffledArray;
 }
 
-function saveDeckNameToLocalStorage(deckName){
+function saveDeckNameToLocalStorage(action, deckName){
   if(localStorage){
-    localStorage.setItem('deckName', JSON.stringify(deckName));
+    localStorage.setItem(action, JSON.stringify(deckName));
   }
 }
 
