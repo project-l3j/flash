@@ -271,6 +271,37 @@ function removeDeckFromDecks(deckName){
   return false;
 }
 
+// This will shuffle the cards for studying
+function shuffle(sizeOfDeck){
+  let shuffledArray = [];
+  let unshuffledArray = [];
+  // Creates ordered deck
+  for (let index = 0; index < sizeOfDeck; index++) {
+    unshuffledArray[index] = index;
+  }
+  while(unshuffledArray.length > 0) {
+    // Get random number
+    let randomIndex = Math.floor(Math.random() * unshuffledArray.length);
+    // Push index to shuffled
+    shuffledArray.push(unshuffledArray[randomIndex]);
+    // Remove from unshuffled
+    unshuffledArray.splice(randomIndex, 1);
+  }
+  return shuffledArray;
+}
+
+function saveDeckNameToLocalStorage(deckName){
+  if(localStorage){
+    localStorage.setItem('deckName', JSON.stringify(deckName));
+  }
+}
+
+function getDeckNameFromLocalStorage(){
+  if(localStorage){
+    return JSON.parse(localStorage.getItem('deckName'));
+  }
+}
+
 // This function will make edits to a deck's attributes based off name
 // Names must be unique so we can use this over ID
 function editDeck(deckName, newDeckName, newDeckDescription){
