@@ -74,7 +74,7 @@ var leadershipCards = {
     cardViews : '0',
     cardCorrect : '0'
   }]
-}
+};
 var awsCardInformation = {
   deckName : 'AWS Cards',
   deckDescription : 'Cards to help understand the different AWS tools',
@@ -119,9 +119,9 @@ var awsCardInformation = {
     cardViews : '0',
     cardCorrect : '0'
   }]
-}
+};
 
-var amazonStudyCards = [leadershipCards, awsCardInformation];
+var amazonStudyCards = [leadershipCards, awsCardInformation, leadershipCards];
 
 //Decks is the array that holds all of the decks
 var allDecks = [];
