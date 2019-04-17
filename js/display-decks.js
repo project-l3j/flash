@@ -30,8 +30,15 @@ function createDeckDisplay(){
     card.className = 'card';
     card.setAttribute('data-id', i);
 
-    // add event listener to card
-    card.addEventListener('click', handleStudyActionOnDeck);
+    var editRow = document.createElement('div');
+    editRow.className = 'card-edit';
+    var editButton = document.createElement('button');
+    editButton.textContent = 'edit';
+    editButton.style.display = 'none';
+    editRow.appendChild(editButton);
+
+    var cardContent = document.createElement('div');
+    cardContent.className = 'card-content';
 
     var displayName = document.createElement('h2');
     displayName.className = 'title';
@@ -41,10 +48,27 @@ function createDeckDisplay(){
     displayDescription.className = 'description';
     displayDescription.textContent = decksInLocalStorage[i].deckDescription;
 
-    card.appendChild(displayName);
-    card.appendChild(displayDescription);
+    var cardActionRow = document.createElement('div');
+    cardActionRow.className = 'card-study';
+    var cardCTA = document.createElement('h3');
+    cardCTA.textContent = 'Study this deck';
+    cardCTA.style.display = 'none';
+    cardActionRow.appendChild(cardCTA);
+
+    cardContent.appendChild(displayName);
+    cardContent.appendChild(displayDescription);
+    card.appendChild(editRow);
+    card.appendChild(cardContent);
+    card.appendChild(cardActionRow);
     col.appendChild(card);
     row.appendChild(col);
+
+    // add event listener to card for click
+    card.addEventListener('click', handleStudyActionOnDeck);
+
+    // add event listeners to card for hover in/out
+    card.addEventListener('mouseover', handleCardHoverStart);
+    card.addEventListener('mouseleave', handleCardHoverEnd);
 
     if (i === lastIndex) { // check if final time through loop
 
@@ -83,20 +107,26 @@ function createDeckDisplay(){
 // ++++++++++++++++++++++++++++++++++++++++++++
 // EVENT Handler - Event Handler Functions
 // ++++++++++++++++++++++++++++++++++++++++++++
+function handleCardHoverStart() {
+  let thisCard = this;
+  var editButton = this.children[0].children[0];
+  editButton.style.display = 'inline-block';
+}
+
+function handleCardHoverEnd() {
+  let thisCard = this;
+  var editButton = this.children[0].children[0];
+  editButton.style.display = 'none';
+}
+
 function handleStudyActionOnDeck(){
   let index = this.dataset.id; // grab index from data-id attribute
   saveDeckNameToLocalStorage('study', allDecks[index].deckName);
 }
 
+function handleEditActionOnDeck() {
 
-// ++++++++++++++++++++++++++++++++++++++++++++
-// EVENT Handlers - add event handlers
-// ++++++++++++++++++++++++++++++++++++++++++++
-
-
-
-
-
+}
 
 // ++++++++++++++++++++++++++++++++++++++++++++
 // Driver- Invoke Functions

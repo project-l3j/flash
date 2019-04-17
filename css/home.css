@@ -1,0 +1,30 @@
+/* Styles for index.html */
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.column {
+  width: 50%;
+}
+
+.row .column:first-of-type {
+  margin-right: 40px;
+}
+
+.row .column:last-of-type {
+  margin-left: 40px;
+}
+
+.card {
+  height: 400px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.card-edit {
+  text-align: right;
+  height: 18px;
+}
