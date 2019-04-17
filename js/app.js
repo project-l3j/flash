@@ -133,25 +133,58 @@ function Card(cardQuestion, cardAnswer, cardViews = 0, cardCorrect = 0) {
   this.cardViews = cardViews;
   this.cardCorrect = cardCorrect;
 
+  // This function will incrememt based on the number of views
   this.incrementCardViews = function(){
     this.cardViews++;
   };
 
+  // This function will increment the number of times the card was guess correctly
   this.incrementCardCorrect = function(){
     this.cardCorrect++;
   };
+
+  // This function will reset the cards stats
+  this.cardCounterReset = function(){
+    this.cardCorrect = 0;
+    this.cardViews = 0;
+  }
 }
 
-//Constructor Function for Decks
+// Constructor Function for Decks
 function SingleDeck(deckName, deckDescription) {
   this.deckName = deckName;
   this.deckDescription = deckDescription;
   this.deckCards = [];
 
+  // This function adds a card to the deck by creating it based off use parameters 
+  // Then pushing it to the list of deckCards for this specific deck
   this.addCardtoDeck = function(cardQuestion, cardAnswer, cardViews = 0, cardCorrect = 0){
     var addNewCard = new Card(cardQuestion, cardAnswer, cardViews, cardCorrect);
     this.deckCards.push(addNewCard);
   };
+
+  // This will remove the card based on the Index which should be relative
+  // Since cardAnswer couod have duplicates using that wont produce perfec tresults
+  // If the index is valid it will delete whatever is in that index
+  this.removeCardFromDeck = function(indexOfCard){
+    if(indexOfCard >= 0 && indexOfCard < this.deckCards.length){
+      this.deckCards.splice(indexOfCard, 1);
+      return true;
+    }
+    return false;
+  };
+
+  // This will edit the card based on the Index which should be relative
+  // If the index given is valid it will edit that specific card.
+  this.editCardFromDeck = function(indexOfCard, editedCardQuestion, editedCardAnswer){
+    if(indexOfCard >= 0 && indexOfCard < this.deckCards.length){
+      this.deckCards[indexOfCard].cardQuestion = editedCardQuestion;
+      this.deckCards[indexOfCard].cardAnswer = editedCardAnswer;
+      return true;
+    }
+    return false;
+  }
+
 }
 
 // Creates a Deck From the DeckObject
@@ -201,12 +234,57 @@ function saveDecks(){
 function doesDeckExist(deckName){
   let deckLength = allDecks.length;
   for(let i = 0; i < deckLength; i++){
-    //if there is a match of a deckName
+    // If there is a match of a deckName
     if(allDecks[i].deckName === deckName){
       return true;
     }
   }
-  //return false if you made it through without finding a match
+  // Return false if you made it through without finding a match
   return false;
 }
 
+// This will check and see if the deck exists before adding.
+function indexOfDeck(deckName){
+  let deckLength = allDecks.length;
+  for(let i = 0; i < deckLength; i++){
+    // If there is a match of a deckName
+    if(allDecks[i].deckName === deckName){
+      return i;
+    }
+  }
+  // Return false if you made it through without finding a match
+  return -1;
+}
+
+// This function will remove a deck based off name
+// Names must be unique so we can use this over ID
+function removeDeckFromDecks(deckName){
+  let indexToRemove = indexOfDeck(deckName);
+  if(indexToRemove >= 0){
+    // Remove item from list
+    allDecks.splice(indexToRemove, 1);
+    // Save to localstorage to remove backup
+    saveDecks();
+    return true;
+  }
+  //if nothing was found to remove
+  return false;
+}
+
+// This function will make edits to a deck's attributes based off name
+// Names must be unique so we can use this over ID
+function editDeck(deckName, newDeckName, newDeckDescription){
+  // Find match and get Index
+  let indexToEdit = indexOfDeck(deckName);
+  // If the index exists
+  if(indexToEdit >= 0){
+    // Replace old content with new content
+    allDecks[indexToEdit].deckName = newDeckName;
+    allDecks[indexToEdit].deckDescription = newDeckDescription;
+    // Push changes to local Storage
+    saveDecks();
+    // return True
+    return true;
+  }
+  return false;
+}
