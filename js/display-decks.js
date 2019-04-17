@@ -30,6 +30,9 @@ function createDeckDisplay(){
     card.className = 'card';
     card.setAttribute('data-id', i);
 
+    // add event listener to card
+    card.addEventListener('click', handleStudyActionOnDeck);
+
     var displayName = document.createElement('h2');
     displayName.className = 'title';
     displayName.textContent = decksInLocalStorage[i].deckName;
@@ -80,8 +83,9 @@ function createDeckDisplay(){
 // ++++++++++++++++++++++++++++++++++++++++++++
 // EVENT Handler - Event Handler Functions
 // ++++++++++++++++++++++++++++++++++++++++++++
-function handleClickOnDeck(){
-  
+function handleStudyActionOnDeck(){
+  let index = this.dataset.id; // grab index from data-id attribute
+  saveDeckNameToLocalStorage('study', allDecks[index].deckName);
 }
 
 
