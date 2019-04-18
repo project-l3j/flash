@@ -6,11 +6,11 @@
 
 // Find in localStorage which deck we are using return to index.html if DNE
 var deckName = getDeckNameFromLocalStorage();
-if(!deckName){
+if(!deckName) {
   window.location = 'index.html';
 }
 // Make sure we have decks loaded
-if(allDecks.length === 0){
+if(allDecks.length === 0) {
   loadDecksIntoAllDecks(amazonStudyCards);
 }
 // Get the deck we want to study
@@ -32,17 +32,17 @@ var goRetryButton = document.getElementById('retryButton');
 var shuffledCards;
 var indexOfShuffled = 0;
 // Make the card answer invisible till deck is created
-cardAnswerElement.style.display='none';
+cardAnswerElement.style.display = 'none';
 
-function initStudy(){
+function initStudy() {
   indexOfShuffled = 0;
   // Create array to hold shuffled deck
   shuffledCards = shuffle(studyDeck.deckCards.length);
   //This will hide the home and retry buttons
-  correctCardButton.style.display='block';
-  incorrectCardButton.style.display='block';
-  goHomeButton.style.display='none';
-  goRetryButton.style.display='none';
+  correctCardButton.style.display = 'block';
+  incorrectCardButton.style.display = 'block';
+  goHomeButton.style.display = 'none';
+  goRetryButton.style.display = 'none';
   //This will populate the cards
   populateStudyCard(shuffledCards[indexOfShuffled]);
 }
@@ -51,10 +51,14 @@ initStudy();
 
 console.log(studyDeck);
 
-function populateStudyCard(cardIndex){
-  if(indexOfShuffled >= 0 && indexOfShuffled < shuffledCards.length){
-    if(cardIndex >= 0 && cardIndex < studyDeck.deckCards.length)
-    {
+function populateStudyCard(cardIndex) {
+  console.log('cardIndex', cardIndex);
+  if (indexOfShuffled >= 0 && indexOfShuffled < shuffledCards.length){ // validate shuffled is ok
+    if (cardIndex >= 0 && cardIndex < studyDeck.deckCards.length) { // validate ???
+
+      // call helper fn to switch display back to question
+      setCardToQuestion();
+
       cardAnswerElement.textContent = studyDeck.deckCards[cardIndex].cardAnswer;
       cardQuestionElement.textContent = studyDeck.deckCards[cardIndex].cardQuestion;
       return true;
@@ -64,7 +68,7 @@ function populateStudyCard(cardIndex){
   return false;
 }
 
-function endOfDeck(){
+function endOfDeck() {
   // Hide old buttons
   correctCardButton.style.display = 'none';
   incorrectCardButton.style.display = 'none';
@@ -78,8 +82,8 @@ function endOfDeck(){
 // ++++++++++++++++++++++++++++++++++++++++++++
 
 // This will increment the indexOfShuffled (populate the next card), cardViews and cardCorrect
-function handleCorrectButton(event){
-  if(indexOfShuffled < shuffledCards.length){
+function handleCorrectButton(event) {
+  if(indexOfShuffled < shuffledCards.length) {
     // Increments card correct
     studyDeck.deckCards[shuffledCards[indexOfShuffled]].incrementCardCorrect();
     // Increment card views
@@ -94,14 +98,14 @@ function handleCorrectButton(event){
       // TODO: Do stuff for end of deck
       endOfDeck();
     }
-  }else{
+  } else {
     // TODO: Do stuff for end of deck
     endOfDeck();
   }
 }
 
 // This will increment the indexOfShuffled (populate the next card) and cardViews
-function handleIncorrectButton(event){
+function handleIncorrectButton(event) {
   if(indexOfShuffled < shuffledCards.length){
     //increment the card views
     studyDeck.deckCards[shuffledCards[indexOfShuffled]].incrementCardViews();
@@ -120,17 +124,25 @@ function handleIncorrectButton(event){
 }
 
 //This will display toggle the display of the question and answer
-function handleCardFlip(event){
-  if (cardAnswerElement.style.display==='none'){
-    cardAnswerElement.style.display='block';
-    cardQuestionElement.style.display='none';
-  }else{
-    cardAnswerElement.style.display='none';
-    cardQuestionElement.style.display='block';
+function handleCardFlip(event) {
+  if (cardAnswerElement.style.display === 'none') {
+    cardAnswerElement.style.display = 'block';
+    cardQuestionElement.style.display = 'none';
+  } else {
+    cardAnswerElement.style.display = 'none';
+    cardQuestionElement.style.display = 'block';
   }
 }
 
-function handleHomeButton(event){
+// this will make sure that card is displaying question first, not answer
+function setCardToQuestion() {
+  if (cardQuestionElement.style.display === 'none') {
+    cardAnswerElement.style.display = 'none';
+    cardQuestionElement.style.display = 'block';
+  }
+}
+
+function handleHomeButton(event) {
   window.location = 'index.html';
 }
 
@@ -138,7 +150,7 @@ function handleHomeButton(event){
 // This needs to shuffle, this needs to reappear the old correct / incorrect buttons
 // Set index of shuffle to 0;
 // populate first card
-function handleRetryButton(event){
+function handleRetryButton(event) {
   initStudy();
 }
 
