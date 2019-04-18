@@ -70,6 +70,9 @@ function createDeckDisplay(){
     card.addEventListener('mouseover', handleCardHoverStart);
     card.addEventListener('mouseleave', handleCardHoverEnd);
 
+    // add event listener to card for edit click
+    editButton.addEventListener('click', handleEditActionOnDeck);
+
     if (i === lastIndex) { // check if final time through loop
 
       var lastCol = document.createElement('div');
@@ -90,6 +93,11 @@ function createDeckDisplay(){
       createDeckCard.appendChild(displayNameCreate);
       createDeckCard.appendChild(displayDescriptionCreate);
       lastCol.appendChild(createDeckCard);
+
+      // add event listener for create deck
+      createDeckCard.addEventListener('click', function() {
+        window.location = 'create-deck.html';
+      });
 
       if (i % 2 !== 0) { // if last index is even
         var lastRow = document.createElement('div');
@@ -131,8 +139,12 @@ function handleStudyActionOnDeck(){
   window.location = 'study.html';
 }
 
-function handleEditActionOnDeck() {
-
+function handleEditActionOnDeck(event) {
+  event.stopPropagation();
+  let card = this.parentElement;
+  let index = card.parentElement.dataset.id; // grab index from data-id attribute
+  saveDeckNameToLocalStorage('edit', allDecks[index].deckName);
+  window.location = 'edit.html';
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++
