@@ -297,9 +297,9 @@ function saveDeckNameToLocalStorage(action, deckName){
   }
 }
 
-function getDeckNameFromLocalStorage(){
+function getDeckNameFromLocalStorage(actionType){
   if(localStorage){
-    return JSON.parse(localStorage.getItem('deckName'));
+    return JSON.parse(localStorage.getItem(actionType));
   }
 }
 
