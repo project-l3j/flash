@@ -1,0 +1,44 @@
+/****************************
+      about.css STYLING
+*****************************/
+
+div{
+  width: 70%;
+  margin: 50px auto;
+}
+
+section img{
+  float: left;
+  margin-right: 30px;
+  max-width: 280px;
+  max-height: 200px;
+}
+
+section h2{
+  font-size: 20px;
+  margin: 10px 0px;
+}
+
+section p{
+  line-height: 20px;
+  font-style: italic;
+  height: 115px;
+  overflow: scroll;
+  margin-bottom: 10px;
+}
+
+button{
+  text-align: right;
+  background-color: #232f3e;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+  padding: 10px 30px;
+  cursor: pointer;
+  transition: 350ms;
+}
+
+button:hover{
+  background-color:  #f8991d;
+  color: #444;
+}
