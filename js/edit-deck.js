@@ -147,6 +147,8 @@ function handleSaveClick(event) {
 
   // add event back for mouseleave
   editContainer.addEventListener('mouseleave', handleCardHoverEnd);
+
+  handleFooterDisplay();
 }
 
 function handleDeleteClick(event) {
@@ -160,8 +162,15 @@ function handleDeleteClick(event) {
 
   // remove card from deck in memory
   editDeck.removeCardFromDeck(id);
+
+  handleFooterDisplay();
 }
 
+// handler function to show sticky footer when a card is either edited or deleted (first of either)
+function handleFooterDisplay() {
+  var footer = document.querySelector('footer');
+  footer.style.display = 'flex';
+}
 
 // function calls
 loadCards();
