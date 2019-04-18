@@ -1,7 +1,7 @@
 'use strict';
 
 //Create the decks from the functions in app.js, and save them to localStorage
-var test = loadDecksIntoAllDecks(amazonStudyCards);
+loadDecksIntoAllDecks(amazonStudyCards);
 saveDecks();
 
 // Check the number of decks in local storage

@@ -86,6 +86,10 @@ function loadCards() {
 var deleteDeckButton = document.getElementById('delete-deck');
 deleteDeckButton.addEventListener('click', handleDeleteDeckClick);
 
+// add listener for confirm delete deck
+var confirmDeleteButton = document.getElementById('confirm-delete');
+confirmDeleteButton.addEventListener('click', handleConfirmDeleteClick);
+
 // add listener for edit confirmation button in footer
 var confirmButton = document.getElementById('confirm-edits');
 confirmButton.addEventListener('click', handleConfirmClick);
@@ -179,13 +183,12 @@ function handleConfirmClick() {
 
 function handleDeleteDeckClick() {
   deleteDeckButton.style.display = 'none';
-  var confirmDeleteButton = document.getElementById('confirm-delete');
   confirmDeleteButton.style.display = 'inline-block';
-  confirmDeleteButton.addEventListener('click', handleConfirmDeleteClick);
 }
 
 function handleConfirmDeleteClick() {
   allDecks.splice(indexOfDeck(editDeck.deckName), 1);
+  saveDecks();
   localStorage.removeItem('edit');
   window.location = 'index.html';
 }
