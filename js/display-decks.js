@@ -110,13 +110,19 @@ function createDeckDisplay(){
 function handleCardHoverStart() {
   let thisCard = this;
   var editButton = this.children[0].children[0];
+  var ctaText = this.children[2].children[0];
+
   editButton.style.display = 'inline-block';
+  ctaText.style.display = 'block';
 }
 
 function handleCardHoverEnd() {
   let thisCard = this;
   var editButton = this.children[0].children[0];
+  var ctaText = this.children[2].children[0];
+
   editButton.style.display = 'none';
+  ctaText.style.display = 'none';
 }
 
 function handleStudyActionOnDeck(){
