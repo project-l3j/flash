@@ -33,7 +33,7 @@ function createDeckDisplay(){
     var editRow = document.createElement('div');
     editRow.className = 'card-edit';
     var editButton = document.createElement('button');
-    editButton.textContent = 'edit';
+    editButton.textContent = 'edit >>';
     editButton.style.display = 'none';
     editRow.appendChild(editButton);
 

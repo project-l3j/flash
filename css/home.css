@@ -3,33 +3,76 @@
 .row {
   display: flex;
   flex-flow: row nowrap;
+  margin-bottom: 40px;
 }
 
 .column {
-  width: 50%;
+  width: 500px;
 }
 
 .row .column:first-of-type {
-  margin-right: 40px;
+  margin-right: 20px;
 }
 
 .row .column:last-of-type {
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 .card {
-  height: 400px;
+  height: 300px;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
+  border-top: 5px solid #232f3e;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.3), 0 0 0 1px rgba(0,0,0,.04);
+  background: #fff;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 1px 20px 0 rgba(0,0,0,.3), 0 0 0 1px rgba(0,0,0,.04);
 }
 
 .card-edit {
   text-align: right;
   height: 18px;
+  margin: 10px;
+}
+
+.card-edit button {
+  cursor: pointer;
+  text-transform: capitalize;
+  color: #aab7b8;
+  border: none;
+  background: none;
+  font-size: 18px;
+}
+
+.card-content {
+  margin: 50px;
+}
+
+.card-content h2 {
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.card-content p {
+  font-family: "ember-light", Helvetica, Arial, sans-serif;
+  font-size: 18px;
 }
 
 .card-study {
-  height: 16px;
+  height: 40px;
+  border-top: 1px solid #d5dbdb;
   text-align: center;
+}
+
+.card-study h3 {
+  color: #007eb9;
+  font-family: "ember-reg", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 12px auto;
 }
