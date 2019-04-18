@@ -5,7 +5,7 @@
 // ++++++++++++++++++++++++++++++++++++++++++++
 
 // Find in localStorage which deck we are using return to index.html if DNE
-var deckName = getDeckNameFromLocalStorage();
+var deckName = getDeckNameFromLocalStorage('study');
 if(!deckName) {
   window.location = 'index.html';
 }
