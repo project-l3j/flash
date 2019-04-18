@@ -22,8 +22,8 @@ document.getElementById('deckName').innerText = studyDeck.deckName;
 document.getElementById('deckDescription').innerText = studyDeck.deckDescription;
 
 // Get elements for html manipulation
-var cardQuestionElement = document.getElementsByClassName('cardQuestion');
-var cardAnswerElement = document.getElementsByClassName('cardAnswer');
+var cardQuestionElement = document.getElementById('cardQuestion');
+var cardAnswerElement = document.getElementById('cardAnswer');
 var correctCardButton = document.getElementById('correctButton');
 var incorrectCardButton = document.getElementById('incorrectButton');
 var flipCard = document.getElementById('card');
@@ -31,9 +31,8 @@ var goHomeButton = document.getElementById('homeButton');
 var goRetryButton = document.getElementById('retryButton');
 var shuffledCards;
 var indexOfShuffled = 0;
-
 // Make the card answer invisible till deck is created
-cardAnswerElement.style.display='none';
+cardAnswerElement.style.display='block';
 
 function initStudy(){
   indexOfShuffled = 0;
@@ -121,15 +120,15 @@ function handleIncorrectButton(event){
 }
 
 //This will display toggle the display of the question and answer
-function handleCardFlip(event){
-  if (cardAnswerElement.style.display==='none'){
-    cardAnswerElement.style.display='block';
-    cardQuestionElement.style.display='none';
-  }else{
-    cardAnswerElement.style.display='none';
-    cardQuestionElement.style.display='block';
-  }
-}
+// function handleCardFlip(event){
+//   if (cardAnswerElement.style.display==='none'){
+//     cardAnswerElement.style.display='block';
+//     cardQuestionElement.style.display='none';
+//   }else{
+//     cardAnswerElement.style.display='none';
+//     cardQuestionElement.style.display='block';
+//   }
+// }
 
 function handleHomeButton(event){
   window.location = 'index.html';
@@ -150,8 +149,19 @@ function handleRetryButton(event){
 
 correctCardButton.addEventListener('click', handleCorrectButton);
 incorrectCardButton.addEventListener('click', handleIncorrectButton);
-flipCard.addEventListener('click', handleCardFlip);
+//flipCard.addEventListener('click', handleCardFlip);
 // 2 more for return home and retry
 goHomeButton.addEventListener('click', handleHomeButton);
 goRetryButton.addEventListener('click', handleRetryButton);
 
+function flip(event){
+  var element = event.currentTarget;
+  if (element.className === 'card') {
+    if(element.style.transform === 'rotateX(180deg)') {
+      element.style.transform = 'rotateX(0deg)';
+    }
+    else {
+      element.style.transform = 'rotateX(180deg)';
+    }
+  }
+}
