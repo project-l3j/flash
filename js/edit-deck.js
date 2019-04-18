@@ -151,7 +151,15 @@ function handleSaveClick(event) {
 
 function handleDeleteClick(event) {
   event.stopPropagation();
-  let thisCard = this;
+  let editContainer = event.path[2];
+  let card = event.path[2].children[0];
+  let id = card.dataset.id;
+
+  // remove card from dom
+  editContainer.parentNode.removeChild(editContainer);
+
+  // remove card from deck in memory
+  editDeck.removeCardFromDeck(id);
 }
 
 
