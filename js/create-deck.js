@@ -6,6 +6,7 @@
 
 //temporarily holds the deck information until we push it to allDecks
 var tempDeck;
+var cardCounter = 0;
 
 // This will load local storage decks if they exist or it will load hard coded.
 loadDecksIntoAllDecks(amazonStudyCards);
@@ -13,6 +14,9 @@ loadDecksIntoAllDecks(amazonStudyCards);
 // Make the card form invisible till deck is created
 document.getElementById('card').style.display='none';
 document.getElementById('deckDoneButton').style.display='none';
+
+// Get card counter element
+var countCards = document.getElementById('countCards');
 
 // ++++++++++++++++++++++++++++++++++++++++++++
 // EVENT Handler - Event Handler Functions
@@ -34,7 +38,6 @@ function handleDeckFormSubmit(event){
     alert('This deck already exists');
     return;
   }
-
   // This Code executes if there are no issues with validation
   // Make the deckname form disappear
   document.getElementById('deck').style.display='none';
@@ -61,6 +64,10 @@ function handleCardFormSubmit(event){
   // Clear answers
   cardQuestionElement.value = '';
   cardAnswerElement.value = '';
+
+  //increment card counter and add update tab on bottom
+  cardCounter++;
+  countCards.textContent = cardCounter;
 }
 
 // This function handles button clicks and pushes the final deck to the allDecks list
@@ -71,7 +78,7 @@ function handleDoneButtonClick(event){
   // Push to localstorage
   saveDecks();
   // TODO: do something else(redirect home?)
-  window.location.reload();
+  window.location = 'index.html';
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,123 @@
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+.form-style{
+	font-family: 'Open Sans Condensed', arial, sans;
+	width: 500px;
+	padding: 30px;
+	background: #FFFFFF;
+	margin: 50px auto;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+}
+.form-style h2{
+	background: #232f3e;
+	text-transform: uppercase;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: white;
+	font-size: 18px;
+	font-weight: 100;
+	padding: 20px;
+	margin: -30px -30px 30px -30px;
+}
+.form-style input[type="text"],
+.form-style input[type="date"],
+.form-style input[type="datetime"],
+.form-style input[type="email"],
+.form-style input[type="number"],
+.form-style input[type="search"],
+.form-style input[type="time"],
+.form-style input[type="url"],
+.form-style input[type="password"],
+.form-style textarea,
+.form-style select 
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+}
+.form-style textarea{
+	resize:none;
+	overflow: hidden;
+}
+.form-style input[type="button"], 
+.form-style input[type="submit"]{
+	-moz-box-shadow: inset 0px 1px 0px 0px rgb(230, 116, 34);
+	-webkit-box-shadow: inset 0px 1px 0px 0px rgb(230, 116, 34);
+	box-shadow: inset 0px 1px 0px 0px rgb(230, 116, 34);
+	background-color: #EB690E;
+	border: 1px solid #E05500;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.form-style input[type="button"]:hover, 
+.form-style input[type="submit"]:hover {
+	background:linear-gradient(to bottom, #E05500 5%, #E05500 100%);
+	background-color: #EB690E;
+}
+
+
+/* STICKY FOOTER */
+.content {
+  padding: 20px;
+}
+
+footer p, footer button{
+  margin: 0px 40px 0px 40px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #FFFFFF;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+  text-transform: uppercase;
+}
+
+footer button {
+  -moz-box-shadow: inset 0px 1px 0px 0px rgb(230, 116, 34);
+	-webkit-box-shadow: inset 0px 1px 0px 0px rgb(230, 116, 34);
+	box-shadow: inset 0px 1px 0px 0px rgb(230, 116, 34);
+	background-color: #EB690E;
+  border: 1px solid #E05500;
+  border-radius: 3px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+footer button:hover {
+  background:linear-gradient(to bottom, #E05500 5%, #E05500 100%);
+	background-color: #EB690E;
+}
+
+footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #232f3e;
+  color: white;
+  height: 80px;
+}

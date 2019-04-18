@@ -6,31 +6,42 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Create New Deck</title>
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/create-deck.css">
 </head>
 <body>
-  <p>Create a new deck</p>
-  <div>
-    <form id="deck">
-      <label for="deckName">Deck Name:</label>
-      <input type="text" id="deckName" name="deckName" required/>
-      <label for="deckDescription">Deck Description</label> 
-      <input type="text" id="deckDescription" name="deckDescription" required/>
-      <input type="submit" value="Create Deck" />
-    </form>
+    <header>
+        <h1>Flash</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="study.html" >Study Quiz</a></li>
+            <li><a href="create-deck.html" >Customize Deck</a></li>
+            <li><a href="about.html" >About Us</a></li>
+          </ul>
+        </nav>
+      </header>
+  <div class="content">
+    <div class="form-style">
+      <form id="deck">
+        <h2>Create a new deck</h2>
+        <input type="text" id="deckName" name="deckName" placeholder = 'Enter the deck name here..' required/>
+        <textarea id="deckDescription" name="deckDescription" placeholder='Enter the deck description here..'required></textarea>
+        <input type="submit" value="Create Deck" />
+      </form>
 
-    <form id="card">
-      <fieldset>
-        <legend>Card</legend>
-        <label for="cardQuestion">Card Question:</label>
-        <textarea id="cardQuestion" name="cardQuestion" rows="4" cols="30" form="card" placeholder="Enter text here..." required></textarea>
-        <label for="cardAnswer">Card Answer:</label>
-        <input type="text" id="cardAnswer" name="cardAnswer" required/>
-        <input type="submit" value="Add To Deck" />
-      </fieldset>
-    </form>
-    <button id="deckDoneButton">Done adding cards</button>
+      <form id="card">
+          <h2>Create a new Card</h2>
+          <textarea id="cardQuestion" name="cardQuestion" form="card" placeholder="Enter card question..." required></textarea>
+          <input type="text" id="cardAnswer" name="cardAnswer" placeholder="Enter card answer..." required/>
+          <input type="submit" value="Add To Deck" />
+      </form>
+    </div>
   </div>
 
+  <footer>
+    <p>Number of cards Added : <span id='countCards'>0</span></p>
+    <button id="deckDoneButton">Done adding cards</button>
+  </footer>
   <script src="js/app.js"></script>
   <script src="js/create-deck.js"></script>
 </body>
