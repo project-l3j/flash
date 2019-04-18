@@ -136,7 +136,7 @@ function handleCardHoverEnd() {
 function handleStudyActionOnDeck(){
   let index = this.dataset.id; // grab index from data-id attribute
   saveDeckNameToLocalStorage('study', allDecks[index].deckName);
-  window.location = 'study.html';
+  window.location = 'study-deck.html';
 }
 
 function handleEditActionOnDeck(event) {

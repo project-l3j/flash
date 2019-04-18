@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,32 +9,35 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/create-deck.css">
 </head>
+
 <body>
-    <header>
-        <h1>Flash</h1>
-        <nav>
-          <ul>
-            <li><a href="index.html" >Home</a></li>
-            <li><a href="study.html" >Study Quiz</a></li>
-            <li><a href="create-deck.html" >Customize Deck</a></li>
-            <li><a href="about.html" >About Us</a></li>
-          </ul>
-        </nav>
-      </header>
+  <header class="primary-nav">
+    <nav>
+      <h1>Flash</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="study-deck.html">Study</a></li>
+        <li><a href="create-deck.html">Create Deck</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
   <div class="content">
     <div class="form-style">
       <form id="deck">
         <h2>Create a new deck</h2>
-        <input type="text" id="deckName" name="deckName" placeholder = 'Enter the deck name here..' required/>
-        <textarea id="deckDescription" name="deckDescription" placeholder='Enter the deck description here..'required></textarea>
+        <input type="text" id="deckName" name="deckName" placeholder='Enter the deck name here..' required />
+        <textarea id="deckDescription" name="deckDescription" placeholder='Enter the deck description here..'
+          required></textarea>
         <input type="submit" value="Create Deck" />
       </form>
 
       <form id="card">
-          <h2>Create a new Card</h2>
-          <textarea id="cardQuestion" name="cardQuestion" form="card" placeholder="Enter card question..." required></textarea>
-          <input type="text" id="cardAnswer" name="cardAnswer" placeholder="Enter card answer..." required/>
-          <input type="submit" value="Add To Deck" />
+        <h2>Create a new Card</h2>
+        <textarea id="cardQuestion" name="cardQuestion" form="card" placeholder="Enter card question..."
+          required></textarea>
+        <input type="text" id="cardAnswer" name="cardAnswer" placeholder="Enter card answer..." required />
+        <input type="submit" value="Add To Deck" />
       </form>
     </div>
   </div>
@@ -45,4 +49,5 @@
   <script src="js/app.js"></script>
   <script src="js/create-deck.js"></script>
 </body>
+
 </html>
