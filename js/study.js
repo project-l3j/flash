@@ -31,8 +31,10 @@ var goHomeButton = document.getElementById('homeButton');
 var goRetryButton = document.getElementById('retryButton');
 var shuffledCards;
 var indexOfShuffled = 0;
+var delayedIndex;
+
 // Make the card answer invisible till deck is created
-cardAnswerElement.style.display = 'none';
+cardAnswerElement.style.display='block';
 
 function initStudy() {
   indexOfShuffled = 0;
@@ -52,20 +54,34 @@ initStudy();
 console.log(studyDeck);
 
 function populateStudyCard(cardIndex) {
-  console.log('cardIndex', cardIndex);
+  delayedIndex = cardIndex;
   if (indexOfShuffled >= 0 && indexOfShuffled < shuffledCards.length){ // validate shuffled is ok
-    if (cardIndex >= 0 && cardIndex < studyDeck.deckCards.length) { // validate ???
+    if (cardIndex >= 0 && cardIndex < studyDeck.deckCards.length) { // validate
 
       // call helper fn to switch display back to question
       setCardToQuestion();
 
-      cardAnswerElement.textContent = studyDeck.deckCards[cardIndex].cardAnswer;
-      cardQuestionElement.textContent = studyDeck.deckCards[cardIndex].cardQuestion;
       return true;
     }
     return false;
   }
   return false;
+}
+
+function editTextOnTimeOut () {
+  cardQuestionElement.textContent = studyDeck.deckCards[delayedIndex].cardQuestion;
+  cardAnswerElement.textContent = studyDeck.deckCards[delayedIndex].cardAnswer;
+}
+
+// this will make sure that card is displaying question first, not answer
+function setCardToQuestion() {
+  let element = document.getElementById('card');
+  if(element.style.transform === 'rotateX(180deg)') {
+    element.style.transform = 'rotateX(0deg)';
+    setTimeout(editTextOnTimeOut, 125);
+  }else{
+    editTextOnTimeOut();
+  }
 }
 
 function endOfDeck() {
@@ -77,6 +93,7 @@ function endOfDeck() {
   goRetryButton.style.display = 'block';
   saveDecks();
 }
+
 // ++++++++++++++++++++++++++++++++++++++++++++
 // EVENT Handler - Event Handler Functions
 // ++++++++++++++++++++++++++++++++++++++++++++
@@ -123,25 +140,6 @@ function handleIncorrectButton(event) {
   }
 }
 
-//This will display toggle the display of the question and answer
-function handleCardFlip(event) {
-  if (cardAnswerElement.style.display === 'none') {
-    cardAnswerElement.style.display = 'block';
-    cardQuestionElement.style.display = 'none';
-  } else {
-    cardAnswerElement.style.display = 'none';
-    cardQuestionElement.style.display = 'block';
-  }
-}
-
-// this will make sure that card is displaying question first, not answer
-function setCardToQuestion() {
-  if (cardQuestionElement.style.display === 'none') {
-    cardAnswerElement.style.display = 'none';
-    cardQuestionElement.style.display = 'block';
-  }
-}
-
 function handleHomeButton(event) {
   window.location = 'index.html';
 }
@@ -161,8 +159,18 @@ function handleRetryButton(event) {
 
 correctCardButton.addEventListener('click', handleCorrectButton);
 incorrectCardButton.addEventListener('click', handleIncorrectButton);
-flipCard.addEventListener('click', handleCardFlip);
 // 2 more for return home and retry
 goHomeButton.addEventListener('click', handleHomeButton);
 goRetryButton.addEventListener('click', handleRetryButton);
 
+function flip(event){
+  var element = event.currentTarget;
+  if (element.className === 'card') {
+    if(element.style.transform === 'rotateX(180deg)') {
+      element.style.transform = 'rotateX(0deg)';
+    }
+    else {
+      element.style.transform = 'rotateX(180deg)';
+    }
+  }
+}

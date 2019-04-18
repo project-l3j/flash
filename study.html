@@ -5,17 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="study.css">
 </head>
 <body>
   <h2 id="deckName"></h2>
   <h4 id="deckDescription"></h4>
-  <div id="card">
-    <p id="cardQuestion">
-      Default
-    </p>
-    <p id="cardAnswer">
-      Default2
-    </p>
+
+  <div class="container">
+    <div id="card" class="card" onclick="flip(event)">
+      <div class="front">
+        <p id = "cardQuestion" class = "cardQuestion"></p>
+      </div>
+      <div class="back">
+        <p id = "cardAnswer" class = "cardAnswer">
+      </div>
+    </div>
   </div>
 
   <button id="correctButton">Correct</button>
