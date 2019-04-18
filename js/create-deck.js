@@ -74,7 +74,7 @@ function handleCardFormSubmit(event){
 // Then it pushes this information into localStorage
 function handleDoneButtonClick(event){
   // Add tempDeck to allDecks
-  allDecks.push(tempDeck);
+  allDecks.unshift(tempDeck);
   // Push to localstorage
   saveDecks();
   // TODO: do something else(redirect home?)
