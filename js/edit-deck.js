@@ -15,9 +15,6 @@ if(allDecks.length === 0) {
 var workingDeckIndex = indexOfDeck(deckName);
 var editDeck = allDecks[workingDeckIndex];
 
-// load deck info
-console.log('editDeck', editDeck);
-
 // populate deck name and description in dom
 var deckNameElement = document.getElementById('deck-name');
 var deckDescElement = document.getElementById('deck-description');
@@ -84,6 +81,14 @@ function loadCards() {
     deleteButton.addEventListener('click', handleDeleteClick);
   }
 }
+
+// add listener for delete deck
+var deleteDeckButton = document.getElementById('delete-deck');
+deleteDeckButton.addEventListener('click', handleDeleteDeckClick);
+
+// add listener for edit confirmation button in footer
+var confirmButton = document.getElementById('confirm-edits');
+confirmButton.addEventListener('click', handleConfirmClick);
 
 // event handlers
 function handleCardHoverStart() {
@@ -164,6 +169,16 @@ function handleDeleteClick(event) {
   editDeck.removeCardFromDeck(id);
 
   handleFooterDisplay();
+}
+
+function handleConfirmClick() {
+  saveDecks();
+  window.location = 'index.html';
+}
+
+function handleDeleteDeckClick() {
+  allDecks.splice(indexOfDeck(editDeck.deckName), 1);
+  window.location = 'index.html';
 }
 
 // handler function to show sticky footer when a card is either edited or deleted (first of either)
