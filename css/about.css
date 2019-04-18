@@ -10,7 +10,7 @@ div{
 section img{
   float: left;
   margin-right: 30px;
-  max-width: 280px;
+  width: 200px;
   max-height: 200px;
 }
 
@@ -40,5 +40,8 @@ button{
 
 button:hover{
   background-color:  #f8991d;
+}
+
+a:hover{
   color: #444;
 }
