@@ -19,7 +19,16 @@
   margin: 40px auto;
 }
 
+.card {
+  display: flex;
+  flex-flow: column;
+}
+
 .button-container {
+  display: none;
+}
+
+.save-button {
   display: none;
 }
 
