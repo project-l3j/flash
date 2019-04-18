@@ -1,2 +1,27 @@
 /* Edit deck page styles */
 
+.secondary-nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#container {
+  margin: 100px auto;
+}
+
+.edit-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 600px;
+  margin: 40px auto;
+}
+
+.button-container {
+  display: none;
+}
+
+.edit-button, .delete-button {
+}
