@@ -22,8 +22,8 @@ document.getElementById('deckName').innerText = studyDeck.deckName;
 document.getElementById('deckDescription').innerText = studyDeck.deckDescription;
 
 // Get elements for html manipulation
-var cardQuestionElement = document.getElementById('cardQuestion');
-var cardAnswerElement = document.getElementById('cardAnswer');
+var cardQuestionElement = document.getElementsByClassName('cardQuestion');
+var cardAnswerElement = document.getElementsByClassName('cardAnswer');
 var correctCardButton = document.getElementById('correctButton');
 var incorrectCardButton = document.getElementById('incorrectButton');
 var flipCard = document.getElementById('card');
@@ -31,6 +31,7 @@ var goHomeButton = document.getElementById('homeButton');
 var goRetryButton = document.getElementById('retryButton');
 var shuffledCards;
 var indexOfShuffled = 0;
+
 // Make the card answer invisible till deck is created
 cardAnswerElement.style.display='none';
 
