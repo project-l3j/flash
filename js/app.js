@@ -291,15 +291,15 @@ function shuffle(sizeOfDeck){
   return shuffledArray;
 }
 
-function saveDeckNameToLocalStorage(deckName){
+function saveDeckNameToLocalStorage(action, deckName){
   if(localStorage){
-    localStorage.setItem('deckName', JSON.stringify(deckName));
+    localStorage.setItem(action, JSON.stringify(deckName));
   }
 }
 
-function getDeckNameFromLocalStorage(){
+function getDeckNameFromLocalStorage(actionType){
   if(localStorage){
-    return JSON.parse(localStorage.getItem('deckName'));
+    return JSON.parse(localStorage.getItem(actionType));
   }
 }
 
