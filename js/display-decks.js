@@ -1,7 +1,7 @@
 'use strict';
 
 //Create the decks from the functions in app.js, and save them to localStorage
-var test = loadDecksIntoAllDecks(amazonStudyCards);
+loadDecksIntoAllDecks(amazonStudyCards);
 saveDecks();
 
 // Check the number of decks in local storage
@@ -144,7 +144,7 @@ function handleEditActionOnDeck(event) {
   let card = this.parentElement;
   let index = card.parentElement.dataset.id; // grab index from data-id attribute
   saveDeckNameToLocalStorage('edit', allDecks[index].deckName);
-  window.location = 'edit.html';
+  window.location = 'edit-deck.html';
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++

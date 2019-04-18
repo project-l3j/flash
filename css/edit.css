@@ -1,0 +1,62 @@
+/* Edit deck page styles */
+
+.secondary-nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#confirm-delete {
+  display: none;
+}
+
+#container {
+  margin: 100px auto;
+}
+
+.edit-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 600px;
+  margin: 40px auto;
+}
+
+.card {
+  display: flex;
+  flex-flow: column;
+}
+
+.button-container {
+  display: none;
+}
+
+.save-button {
+  display: none;
+}
+
+.edit-button, .delete-button {
+}
+
+footer {
+  display: none;
+  height: 80px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #232f3e;
+  color: white;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+footer .container {
+  width: 200px;
+  margin: 0 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
