@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+#confirm-delete {
+  display: none;
+}
+
 #container {
   margin: 100px auto;
 }

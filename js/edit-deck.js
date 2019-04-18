@@ -173,11 +173,20 @@ function handleDeleteClick(event) {
 
 function handleConfirmClick() {
   saveDecks();
+  localStorage.removeItem('edit');
   window.location = 'index.html';
 }
 
 function handleDeleteDeckClick() {
+  deleteDeckButton.style.display = 'none';
+  var confirmDeleteButton = document.getElementById('confirm-delete');
+  confirmDeleteButton.style.display = 'inline-block';
+  confirmDeleteButton.addEventListener('click', handleConfirmDeleteClick);
+}
+
+function handleConfirmDeleteClick() {
   allDecks.splice(indexOfDeck(editDeck.deckName), 1);
+  localStorage.removeItem('edit');
   window.location = 'index.html';
 }
 

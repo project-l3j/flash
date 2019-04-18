@@ -144,7 +144,7 @@ function handleEditActionOnDeck(event) {
   let card = this.parentElement;
   let index = card.parentElement.dataset.id; // grab index from data-id attribute
   saveDeckNameToLocalStorage('edit', allDecks[index].deckName);
-  window.location = 'edit.html';
+  window.location = 'edit-deck.html';
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++
