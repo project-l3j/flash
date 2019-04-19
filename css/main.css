@@ -37,7 +37,6 @@ body {
 }
 
 main {
-  /* width: 80%; */
   max-width: 1040px;
   margin: 100px auto;
 }
@@ -84,5 +83,13 @@ a:hover {
   color: #eb5f07;
 }
 
+.secondary-nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-self: flex-start;
+  margin-bottom: 40px;
+}
 
-
+/* add secondary nav styles here */

@@ -18,8 +18,8 @@ var workingDeckIndex = indexOfDeck(deckName);
 var studyDeck = allDecks[workingDeckIndex];
 
 // Set elements for displaying deck information
-document.getElementById('deckName').innerText = studyDeck.deckName;
-document.getElementById('deckDescription').innerText = studyDeck.deckDescription;
+document.getElementById('deck-name').innerText = studyDeck.deckName;
+document.getElementById('deck-description').innerText = studyDeck.deckDescription;
 
 // Get elements for html manipulation
 var cardQuestionElement = document.getElementById('cardQuestion');

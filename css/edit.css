@@ -1,11 +1,11 @@
 /* Edit deck page styles */
 
-.secondary-nav {
+/* .secondary-nav {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 #confirm-delete {
   display: none;

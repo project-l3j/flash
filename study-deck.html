@@ -22,10 +22,14 @@
       </ul>
     </nav>
   </header>
-  <h2 id="deckName"></h2>
-  <h4 id="deckDescription"></h4>
+  <main>
+    <header class="secondary-nav">
+      <div class="deck-meta">
+        <h2 id="deck-name"></h2>
+        <h3 id="deck-description"></h3>
+      </div>
+    </header>
 
-  <div class="container">
     <div id="card" class="card" onclick="flip(event)">
       <div class="front">
         <p id="cardQuestion" class="cardQuestion"></p>
@@ -34,15 +38,17 @@
         <p id="cardAnswer" class="cardAnswer">
       </div>
     </div>
-  </div>
 
-  <button id="correctButton">Correct</button>
-  <button id="incorrectButton">Incorrect</button>
-  <button id="homeButton">Home</button>
-  <button id="retryButton">Retry</button>
+    <div class="button-container">
+      <button id="correctButton">Correct</button>
+      <button id="incorrectButton">Incorrect</button>
+      <button id="homeButton">Home</button>
+      <button id="retryButton">Retry</button>
+    </div>
+  </main>
 
   <script src="js/app.js"></script>
-  <script src="js/study.js"></script>
+  <script src="js/study-deck.js"></script>
 </body>
 
 </html>
