@@ -2,46 +2,55 @@
       about.css STYLING
 *****************************/
 
-div{
+div {
   width: 70%;
   margin: 50px auto;
 }
 
-section img{
+section img {
   float: left;
   margin-right: 30px;
   width: 200px;
   max-height: 200px;
 }
 
-section h2{
+section h2 {
   font-size: 20px;
   margin: 10px 0px;
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  color: #16191f;
 }
 
-section p{
+section p {
   line-height: 20px;
   font-style: italic;
   height: 115px;
   overflow: scroll;
   margin-bottom: 10px;
+  color: #16191f;
+  font-family: "ember-reg", Helvetica, Arial, sans-serif;
 }
 
-button{
+button {
   text-align: right;
-  background-color: #232f3e;
-  border-radius: 5px;
-  color: white;
+  background: rgba(209, 50, 18, 0.9);
+  color: #fff;
+  border-radius: 2px;
+  border: none;
   font-size: 15px;
-  padding: 10px 30px;
+  padding: 8px 40px;
   cursor: pointer;
-  transition: 350ms;
+  transition: hover 350ms;
+  margin-right: 20px;
 }
 
-button:hover{
-  background-color:  #f8991d;
+button:hover {
+  background: rgba(209, 50, 18, 1.0);
+  transition: all 350ms;
 }
 
-a:hover{
-  color: #444;
+button a {
+  text-decoration: none;
+  color: #fff;
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
 }
