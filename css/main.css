@@ -9,17 +9,17 @@ CSS in this file will be used across the entire site.
 *****************************/
 @font-face {
   font-family: "ember-bold";
-  src: url('/fonts/Amazon_Ember_Bd.ttf');
+  src: url('../fonts/Amazon_Ember_Bd.ttf');
 }
 
 @font-face {
   font-family: "ember-reg";
-  src: url('/fonts/Amazon_Ember_Rg.ttf');
+  src: url('../fonts/Amazon_Ember_Rg.ttf');
 }
 
 @font-face {
   font-family: "ember-light";
-  src: url('/fonts/Amazon_Ember_Lt.ttf');
+  src: url('../fonts/Amazon_Ember_Lt.ttf');
 }
 
 /****************************
