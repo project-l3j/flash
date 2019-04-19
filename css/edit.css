@@ -58,6 +58,7 @@ main {
   justify-content: space-between;
   align-items: center;
   width: 800px;
+  min-height: 200px;
   margin: 40px auto;
   background: #fff;
   cursor: pointer;
@@ -67,54 +68,82 @@ main {
   display: flex;
   flex-flow: column;
   margin: 40px;
+  width: 50%;
 }
 
-.card input {
+.card p {
   border: none;
-  background-image: none;
-  background-color: transparent;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  outline: none;
-  font-size: 16px;
-  font-family: "ember-reg", Helvetica, Arial, sans-serif;
+  background: none;
   margin-bottom: 20px;
   color: #16191f;
+  font-size: 16px;
+  line-height: 22px;
 }
 
-.card input[type="textarea"] {
-	resize: vertical;
-  overflow: scroll;
-  min-height: 30px;
-  max-height: 100px;
+.card .card-answer {
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  color: #0073bb;
+}
+
+.card .card-question {
+  font-family: "ember-reg", Helvetica, Arial, sans-serif;
+}
+
+.card p[contentEditable="true"] {
+  border: 1px solid #aab7b8;
+  border-radius: 2px;
+  padding: 8px 12px;
+  cursor: text;
 }
 
 .button-container {
   display: none;
   flex-flow: row nowrap;
   justify-content: center;
+  margin: 40px;
 }
 
 .button-container button {
   cursor: pointer;
   border: none;
   border-radius: 2px;
-  padding: 8px 40px;
+  padding: 8px 18px;
   font-family: "ember-bold", Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
 
 .save-button {
   display: none;
+  background: rgba(0, 115, 187, 0.9);
+  color: #fff;
+}
+
+.save-button:hover {
+  background: rgba(0, 115, 187, 1.0);
 }
 
 .edit-button {
-  
+  background: rgba(29, 129, 2, 0.9);
+  color: #fff;
+  margin-right: 10px;
+}
+
+.edit-button:hover {
+  background: rgba(29, 129, 2, 1.0)
 }
 
 .delete-button {
+  background: rgba(209, 50, 18, 0.9);
+  color: #fff;
+  margin-left: 10px;
+}
 
+.delete-button:hover {
+  background: rgba(209, 50, 18, 1.0);
+}
+
+.cancel-button {
+  display: none;
 }
 
 /* footer */
@@ -132,10 +161,35 @@ footer {
 }
 
 footer .container {
-  width: 200px;
+  width: 400px;
   margin: 0 40px;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+}
+
+footer p, footer button {
+  font-size: 16px;
+  color: #fff;
+}
+
+footer p {
+  font-family: "ember-reg", Helvetica, Arial, sans-serif;
+}
+
+footer button {
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+	background: rgba(235, 95, 7, 0.9);
+  border: none;
+  border-radius: 2px;
+	display: inline-block;
+  cursor: pointer;
+  padding: 8px 18px;
+  margin-left: 20px;
+  text-transform: capitalize;
+}
+
+footer button:hover {
+  background: rgba(235, 95, 7, 1.0);
 }

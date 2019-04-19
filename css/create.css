@@ -81,7 +81,6 @@ main {
 
 footer p, footer button {
   margin: 0px 40px 0px 40px;
-  font-family: "ember-bold", Helvetica, Arial, sans-serif;
   color: #FFFFFF;
 	font-size: 16px;
 	padding: 8px 18px;
@@ -89,7 +88,12 @@ footer p, footer button {
   text-transform: capitalize;
 }
 
+footer p {
+	font-family: "ember-reg", Helvetica, Arial, sans-serif;
+}
+
 footer button {
+	font-family: "ember-bold", Helvetica, Arial, sans-serif;
 	background: rgba(235, 95, 7, 0.9);
   border: none;
   border-radius: 2px;
