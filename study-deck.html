@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Study Deck</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/study.css">
+</head>
+
+<body>
+  <header class="primary-nav">
+    <nav>
+      <h1><a href="index.html">Flash</a></h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="study-deck.html">Study</a></li>
+        <li><a href="create-deck.html">Create Deck</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <header class="secondary-nav">
+      <div class="deck-meta">
+        <h2 id="deck-name"></h2>
+        <h3 id="deck-description"></h3>
+      </div>
+    </header>
+
+    <div id="card" class="card" onclick="flip(event)">
+      <div class="front">
+        <p id="cardQuestion" class="cardQuestion"></p>
+      </div>
+      <div class="back">
+        <p id="cardAnswer" class="cardAnswer">
+      </div>
+    </div>
+
+    <div id="end-notification">
+      <p>That's all the cards in this deck. What next?</p>
+    </div>
+
+    <div class="button-container">
+      <button id="correctButton">Correct</button>
+      <button id="incorrectButton">Incorrect</button>
+      <button id="homeButton">Home</button>
+      <button id="retryButton">Retry</button>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/study-deck.js"></script>
+</body>
+
+</html>
