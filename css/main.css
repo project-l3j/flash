@@ -96,6 +96,8 @@ nav {
   color: #f8991d;
 }
 
+/* secondary nav & contents */
+
 .secondary-nav {
   display: flex;
   flex-flow: row nowrap;
@@ -103,4 +105,10 @@ nav {
   align-items: center;
   align-self: flex-start;
   margin-bottom: 40px;
+}
+
+.page-instructions p {
+  font-family: "ember-reg", Helvetica, Arial, sans-serif;
+  color: #aab7b8;
+  font-size: 22px;
 }

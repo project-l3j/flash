@@ -1,16 +1,5 @@
 /* Styles for index.html */
 
-/* secondary nav & contents */
-.page-instructions {
-  width: 50%;
-}
-
-.page-instructions p {
-  font-family: "ember-reg", Helvetica, Arial, sans-serif;
-  color: #aab7b8;
-  font-size: 22px;
-}
-
 /* grid */
 
 .row {
@@ -23,11 +12,11 @@
   width: 500px;
 }
 
-.row .column:first-of-type {
+.row .column:nth-child(odd) {
   margin-right: 20px;
 }
 
-.row .column:last-of-type {
+.row .column:nth-child(even) {
   margin-left: 20px;
 }
 

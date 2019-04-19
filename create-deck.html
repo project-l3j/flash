@@ -22,25 +22,28 @@
       </ul>
     </nav>
   </header>
-  <div class="content">
+  <main>
+    <header class="secondary-nav">
+      <div class="page-instructions">
+        <p>Create a new deck.</p>
+      </div>
+      <div class="page-notifications"></div>
+    </header>
+
     <div class="form-style">
       <form id="deck">
-        <h2>Create a new deck</h2>
-        <input type="text" id="deckName" name="deckName" placeholder='Enter the deck name here..' required />
-        <textarea id="deckDescription" name="deckDescription" placeholder='Enter the deck description here..'
-          required></textarea>
+        <input type="text" id="deckName" name="deckName" placeholder='Enter a deck name here...' required />
+        <textarea id="deckDescription" name="deckDescription" placeholder='Enter a deck description here...' required></textarea>
         <input type="submit" value="Create Deck" />
       </form>
 
       <form id="card">
-        <h2>Create a new Card</h2>
-        <textarea id="cardQuestion" name="cardQuestion" form="card" placeholder="Enter card question..."
-          required></textarea>
+        <textarea id="cardQuestion" name="cardQuestion" form="card" placeholder="Enter card question..." required></textarea>
         <input type="text" id="cardAnswer" name="cardAnswer" placeholder="Enter card answer..." required />
-        <input type="submit" value="Add To Deck" />
+        <input type="submit" value="Add Card" />
       </form>
     </div>
-  </div>
+  </main>
 
   <footer>
     <p>Number of cards Added : <span id='countCards'>0</span></p>
