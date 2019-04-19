@@ -38,7 +38,7 @@ body {
 
 main {
   max-width: 1040px;
-  margin: 100px auto;
+  margin: 50px auto;
 }
 
 [class*=" icon-"], [class^=icon-] {
