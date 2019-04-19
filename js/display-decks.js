@@ -33,7 +33,7 @@ function createDeckDisplay(){
     var editRow = document.createElement('div');
     editRow.className = 'card-edit';
     var editButton = document.createElement('button');
-    editButton.textContent = 'edit >>';
+    editButton.textContent = 'edit';
     editButton.style.display = 'none';
     editRow.appendChild(editButton);
 
@@ -90,8 +90,12 @@ function createDeckDisplay(){
       displayDescriptionCreate.className = 'description-create';
       displayDescriptionCreate.textContent = 'Create a deck of flashcards to help you learn anything from languages to math';
 
-      createDeckCard.appendChild(displayNameCreate);
-      createDeckCard.appendChild(displayDescriptionCreate);
+      var createDeckContentContainer = document.createElement('div');
+      createDeckContentContainer.className = 'create-container';
+
+      createDeckContentContainer.appendChild(displayNameCreate);
+      createDeckContentContainer.appendChild(displayDescriptionCreate);
+      createDeckCard.appendChild(createDeckContentContainer);
       lastCol.appendChild(createDeckCard);
 
       // add event listener for create deck
