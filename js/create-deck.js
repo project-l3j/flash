@@ -12,8 +12,8 @@ var cardCounter = 0;
 loadDecksIntoAllDecks(amazonStudyCards);
 
 // Make the card form invisible till deck is created
-document.getElementById('card').style.display='none';
-document.getElementById('deckDoneButton').style.display='none';
+document.getElementById('card').style.display = 'none';
+document.getElementById('deckDoneButton').style.display = 'none';
 
 // Get card counter element
 var countCards = document.getElementById('countCards');
@@ -23,7 +23,7 @@ var countCards = document.getElementById('countCards');
 // ++++++++++++++++++++++++++++++++++++++++++++
 
 // This function handles form submits for the deck form
-function handleDeckFormSubmit(event){
+function handleDeckFormSubmit(event) {
   // Prevent page reload
   event.preventDefault();
 
@@ -33,23 +33,24 @@ function handleDeckFormSubmit(event){
   let deckDescription = document.getElementById('deckDescription').value;
 
   // This checks to see if the name exists
-  if(doesDeckExist(deckName)){
+  if(doesDeckExist(deckName)) {
     // Alert for matching deckname
     alert('This deck already exists');
     return;
   }
   // This Code executes if there are no issues with validation
   // Make the deckname form disappear
-  document.getElementById('deck').style.display='none';
-  document.getElementById('card').style.display='block';
-  document.getElementById('deckDoneButton').style.display='block';
+  document.getElementById('deck').style.display = 'none';
+  document.querySelector('.page-instructions p').textContent = 'Add cards to your deck.';
+  document.getElementById('card').style.display = 'block';
+  document.getElementById('deckDoneButton').style.display = 'block';
 
   //Create the a Deck class and add it to the list
   tempDeck = new SingleDeck(deckName, deckDescription);
 }
 
 // This function handles form submits for the card form
-function handleCardFormSubmit(event){
+function handleCardFormSubmit(event) {
   // Prevent reload
   event.preventDefault();
 
@@ -72,7 +73,7 @@ function handleCardFormSubmit(event){
 
 // This function handles button clicks and pushes the final deck to the allDecks list
 // Then it pushes this information into localStorage
-function handleDoneButtonClick(event){
+function handleDoneButtonClick(event) {
   // Add tempDeck to allDecks
   allDecks.unshift(tempDeck);
   // Push to localstorage
@@ -89,7 +90,7 @@ var deckNameForm = document.getElementById('deck');
 deckNameForm.addEventListener('submit', handleDeckFormSubmit);
 
 var cardForm = document.getElementById('card');
-cardForm.addEventListener('submit',handleCardFormSubmit);
+cardForm.addEventListener('submit', handleCardFormSubmit);
 
 var deckDoneButton = document.getElementById('deckDoneButton');
 deckDoneButton.addEventListener('click', handleDoneButtonClick);

@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Edit Deck</title>
+  <title>Study Deck</title>
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/edit.css">
+  <link rel="stylesheet" href="css/study.css">
 </head>
 
 <body>
@@ -28,25 +28,31 @@
         <h2 id="deck-name"></h2>
         <h3 id="deck-description"></h3>
       </div>
-      <div class="deck-buttons">
-        <button id="delete-deck">Delete this deck</button>
-        <button id="confirm-delete">Click to confirm</button>
-      </div>
     </header>
-    <div id="container">
 
+    <div id="card" class="card" onclick="flip(event)">
+      <div class="front">
+        <p id="cardQuestion" class="cardQuestion"></p>
+      </div>
+      <div class="back">
+        <p id="cardAnswer" class="cardAnswer">
+      </div>
     </div>
 
+    <div id="end-notification">
+      <p>That's all the cards in this deck. What next?</p>
+    </div>
+
+    <div class="button-container">
+      <button id="correctButton">Correct</button>
+      <button id="incorrectButton">Incorrect</button>
+      <button id="homeButton">Home</button>
+      <button id="retryButton">Retry</button>
+    </div>
   </main>
-  <footer>
-    <div class="container">
-      <p>Ready to save deck?</p>
-      <button id="confirm-edits">Confirm edits</button>
-    </div>
-  </footer>
 
   <script src="js/app.js"></script>
-  <script src="js/edit-deck.js"></script>
+  <script src="js/study-deck.js"></script>
 </body>
 
 </html>

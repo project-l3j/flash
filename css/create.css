@@ -1,0 +1,120 @@
+/* style for create-deck page */
+
+main {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.form-style {
+	width: 500px;
+	height: 300px;
+	background: #FFFFFF;
+	margin: 40px auto;
+	box-shadow: 0 1px 20px 0 rgba(0,0,0,.3), 0 0 0 1px rgba(0,0,0,.04);
+	border-top: 5px solid #232f3e;
+}
+
+#deck, #card {
+	text-align: right;
+	margin: 50px;
+	position: absolute;
+	width: 400px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.form-style input[type="text"],
+.form-style input[type="date"],
+.form-style input[type="datetime"],
+.form-style input[type="email"],
+.form-style input[type="number"],
+.form-style input[type="search"],
+.form-style input[type="time"],
+.form-style input[type="url"],
+.form-style input[type="password"],
+.form-style textarea,
+.form-style select {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 2px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: none;
+	margin-bottom: 40px;
+	font-family: "ember-reg", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	height: 30px;
+}
+
+.form-style textarea {
+	resize: vertical;
+	overflow: scroll;
+}
+
+.form-style input[type="button"], .form-style input[type="submit"] {
+	background-color: rgba(235, 95, 7, 0.9);
+	border: none;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: "ember-bold", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	padding: 8px 40px;
+	border-radius: 2px;
+	text-decoration: none;
+	text-transform: capitalize;
+	align-self: flex-end;
+}
+
+.form-style input[type="button"]:hover, .form-style input[type="submit"]:hover {
+	background: rgba(235, 95, 7, 1.0);
+}
+
+/* STICKY FOOTER */
+
+footer p, footer button {
+  margin: 0px 40px 0px 40px;
+  color: #FFFFFF;
+	font-size: 16px;
+	padding: 8px 18px;
+	text-decoration: none;
+  text-transform: capitalize;
+}
+
+footer p {
+	font-family: "ember-reg", Helvetica, Arial, sans-serif;
+}
+
+footer button {
+	font-family: "ember-bold", Helvetica, Arial, sans-serif;
+	background: rgba(235, 95, 7, 0.9);
+  border: none;
+  border-radius: 2px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+footer button:hover {
+  background: rgba(235, 95, 7, 1.0);
+}
+
+footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #232f3e;
+  color: white;
+  height: 80px;
+}

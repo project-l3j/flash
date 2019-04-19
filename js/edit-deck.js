@@ -38,14 +38,14 @@ function loadCards() {
     card.setAttribute('data-id', i);
 
     // card info
-    var cardQuestion = document.createElement('input');
-    cardQuestion.setAttribute('type', 'textarea');
-    cardQuestion.setAttribute('placeholder', cardsArray[i].cardQuestion);
-    cardQuestion.disabled = true;
-    var cardAnswer = document.createElement('input');
-    cardAnswer.setAttribute('type', 'text');
-    cardAnswer.setAttribute('placeholder', cardsArray[i].cardAnswer);
-    cardAnswer.disabled = true;
+    var cardQuestion = document.createElement('p');
+    cardQuestion.setAttribute('contentEditable', 'false');
+    cardQuestion.className = 'card-question';
+    cardQuestion.textContent = cardsArray[i].cardQuestion;
+    var cardAnswer = document.createElement('p');
+    cardAnswer.setAttribute('contentEditable', 'false');
+    cardAnswer.className = 'card-answer';
+    cardAnswer.textContent = cardsArray[i].cardAnswer;
 
     // button container
     var buttonContainer = document.createElement('div');
@@ -62,11 +62,15 @@ function loadCards() {
     var deleteButton = document.createElement('button');
     deleteButton.className = 'delete-button';
     deleteButton.textContent = 'Delete';
+    var cancelSaveButton = document.createElement('button');
+    cancelSaveButton.className = 'cancel-button';
+    cancelSaveButton.textContent = 'Cancel';
 
     // append
     buttonContainer.appendChild(editButton);
     buttonContainer.appendChild(saveButton);
     buttonContainer.appendChild(deleteButton);
+    buttonContainer.appendChild(cancelSaveButton);
     card.appendChild(cardAnswer);
     card.appendChild(cardQuestion);
     editContainer.appendChild(card);
@@ -79,6 +83,7 @@ function loadCards() {
     editButton.addEventListener('click', handleEditClick);
     saveButton.addEventListener('click', handleSaveClick);
     deleteButton.addEventListener('click', handleDeleteClick);
+    cancelSaveButton.addEventListener('click', handleCancelSaveClick);
   }
 }
 
@@ -98,7 +103,7 @@ confirmButton.addEventListener('click', handleConfirmClick);
 function handleCardHoverStart() {
   let thisCard = this;
   var buttons = this.children[1];
-  buttons.style.display = 'block';
+  buttons.style.display = 'flex';
 }
 
 function handleCardHoverEnd() {
@@ -112,6 +117,8 @@ function handleEditClick(event) {
   let thisEditButton = this;
   let editButtonContainer = this.parentElement;
   let editContainer = event.path[2];
+  let deleteButton = editButtonContainer.children[2];
+  let cancelButton = editButtonContainer.children[3];
   let card = event.path[2].children[0];
   let cardAnswer = card.children[0];
   let cardQuestion = card.children[1];
@@ -120,17 +127,19 @@ function handleEditClick(event) {
   editContainer.removeEventListener('mouseleave', handleCardHoverEnd);
 
   // show edit container
-  editButtonContainer.style.display = 'block';
+  editButtonContainer.style.display = 'flex';
 
   // make inputs editable
-  cardAnswer.disabled = false;
-  cardQuestion.disabled = false;
+  cardAnswer.setAttribute('contentEditable', 'true');
+  cardQuestion.setAttribute('contentEditable', 'true');
 
   // switch edit button to save button
   thisEditButton.style.display = 'none';
+  deleteButton.style.display = 'none';
   let id = card.dataset.id;
   let save = document.querySelector(`button[data-id='${id}']`);
   save.style.display = 'inline-block';
+  // cancelButton.style.display = 'inline-block';
 }
 
 function handleSaveClick(event) {
@@ -139,20 +148,24 @@ function handleSaveClick(event) {
   let card = event.path[2].children[0];
   let id = card.dataset.id;
   let editContainer = event.path[2];
+  let deleteButton = this.parentElement.children[2];
 
   let newAnswer = card.children[0];
   let newQuestion = card.children[1];
 
   // store new card in deck in memory
-  editDeck.editCardFromDeck(id, newQuestion.value, newAnswer.value);
+  editDeck.editCardFromDeck(id, newQuestion.textContent, newAnswer.textContent);
 
   // disable inputs
-  newAnswer.disabled = true;
-  newQuestion.disabled = true;
+  newAnswer.setAttribute('contentEditable', 'false');
+  newQuestion.setAttribute('contentEditable', 'false');
 
   // hide save button, show edit button
   saveButton.style.display = 'none';
   editContainer.children[1].children[0].style.display = 'inline-block';
+
+  // show delete button again
+  deleteButton.style.display = 'inline-block';
 
   // add event back for mouseleave
   editContainer.addEventListener('mouseleave', handleCardHoverEnd);
@@ -173,6 +186,11 @@ function handleDeleteClick(event) {
   editDeck.removeCardFromDeck(id);
 
   handleFooterDisplay();
+}
+
+function handleCancelSaveClick(event) {
+  event.stopPropagation();
+  let editButtonContainer = this.parentElement;
 }
 
 function handleConfirmClick() {

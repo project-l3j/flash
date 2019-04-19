@@ -18,12 +18,13 @@ var workingDeckIndex = indexOfDeck(deckName);
 var studyDeck = allDecks[workingDeckIndex];
 
 // Set elements for displaying deck information
-document.getElementById('deckName').innerText = studyDeck.deckName;
-document.getElementById('deckDescription').innerText = studyDeck.deckDescription;
+document.getElementById('deck-name').innerText = studyDeck.deckName;
+document.getElementById('deck-description').innerText = studyDeck.deckDescription;
 
 // Get elements for html manipulation
 var cardQuestionElement = document.getElementById('cardQuestion');
 var cardAnswerElement = document.getElementById('cardAnswer');
+var endOfCardsContainer = document.getElementById('end-notification');
 var correctCardButton = document.getElementById('correctButton');
 var incorrectCardButton = document.getElementById('incorrectButton');
 var flipCard = document.getElementById('card');
@@ -91,6 +92,12 @@ function endOfDeck() {
   // Display new buttons for home and retry
   goHomeButton.style.display = 'block';
   goRetryButton.style.display = 'block';
+
+  flipCard.removeEventListener('click', flip);
+  flipCard.style.display = 'none';
+
+  endOfCardsContainer.style.display = 'flex';
+
   saveDecks();
 }
 
@@ -149,6 +156,8 @@ function handleHomeButton(event) {
 // Set index of shuffle to 0;
 // populate first card
 function handleRetryButton(event) {
+  flipCard.style.display = 'block';
+  endOfCardsContainer.style.display = 'none';
   initStudy();
 }
 

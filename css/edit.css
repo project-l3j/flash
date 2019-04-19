@@ -1,48 +1,156 @@
 /* Edit deck page styles */
 
-.secondary-nav {
+main {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  flex-flow: column;
   align-items: center;
+}
+
+/* deck name and description */
+
+.deck-meta h2 {
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  color: #aab7b8;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.deck-meta h3 {
+  font-family: "ember-reg", Helvetica, Arial, sans-serif;
+  color: #aab7b8;
+  font-size: 18px;
+}
+
+/* secondary nav delete buttons */
+.deck-buttons button {
+  cursor: pointer;
+  border: 1px solid #16191f;
+  border-radius: 2px;
+  padding: 8px 40px;
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #16191f;
+  background: none;
+}
+
+#delete-deck:hover {
+  background: #fafafa;
 }
 
 #confirm-delete {
   display: none;
+  border: 1px solid #d13212;
+  color: #d13212;
 }
 
+#confirm-delete:hover {
+  background: #fafafa;
+}
+
+/* cards list */
 #container {
-  margin: 100px auto;
+  margin: 40px auto;
 }
 
 .edit-container {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  width: 600px;
+  align-items: center;
+  width: 800px;
+  min-height: 200px;
   margin: 40px auto;
+  background: #fff;
+  cursor: pointer;
 }
 
 .card {
   display: flex;
   flex-flow: column;
+  margin: 40px;
+  width: 50%;
+}
+
+.card p {
+  border: none;
+  background: none;
+  margin-bottom: 20px;
+  color: #16191f;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.card .card-answer {
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  color: #0073bb;
+}
+
+.card .card-question {
+  font-family: "ember-reg", Helvetica, Arial, sans-serif;
+}
+
+.card p[contentEditable="true"] {
+  border: 1px solid #aab7b8;
+  border-radius: 2px;
+  padding: 8px 12px;
+  cursor: text;
 }
 
 .button-container {
   display: none;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin: 40px;
+}
+
+.button-container button {
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  padding: 8px 18px;
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  font-size: 16px;
 }
 
 .save-button {
   display: none;
+  background: rgba(0, 115, 187, 0.9);
+  color: #fff;
 }
 
-.edit-button, .delete-button {
+.save-button:hover {
+  background: rgba(0, 115, 187, 1.0);
 }
 
+.edit-button {
+  background: rgba(29, 129, 2, 0.9);
+  color: #fff;
+  margin-right: 10px;
+}
+
+.edit-button:hover {
+  background: rgba(29, 129, 2, 1.0)
+}
+
+.delete-button {
+  background: rgba(209, 50, 18, 0.9);
+  color: #fff;
+  margin-left: 10px;
+}
+
+.delete-button:hover {
+  background: rgba(209, 50, 18, 1.0);
+}
+
+.cancel-button {
+  display: none;
+}
+
+/* footer */
 footer {
   display: none;
   height: 80px;
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
@@ -53,10 +161,35 @@ footer {
 }
 
 footer .container {
-  width: 200px;
+  width: 400px;
   margin: 0 40px;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+}
+
+footer p, footer button {
+  font-size: 16px;
+  color: #fff;
+}
+
+footer p {
+  font-family: "ember-reg", Helvetica, Arial, sans-serif;
+}
+
+footer button {
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+	background: rgba(235, 95, 7, 0.9);
+  border: none;
+  border-radius: 2px;
+	display: inline-block;
+  cursor: pointer;
+  padding: 8px 18px;
+  margin-left: 20px;
+  text-transform: capitalize;
+}
+
+footer button:hover {
+  background: rgba(235, 95, 7, 1.0);
 }

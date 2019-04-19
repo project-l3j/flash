@@ -1,0 +1,153 @@
+/* Styles for study-deck page */
+
+main {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+/* deck name and description */
+
+.deck-meta h2 {
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  color: #aab7b8;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.deck-meta h3 {
+  font-family: "ember-reg", Helvetica, Arial, sans-serif;
+  color: #aab7b8;
+  font-size: 18px;
+}
+
+/* study cards */
+
+.card {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  width: 500px;
+  height: 300px;
+  perspective: 1000px;
+  margin-top: 40px;
+}
+
+.front, .back {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  width: 500px;
+  height: 300px;
+  background: #fff;
+}
+
+.front {
+  box-shadow: 0 1px 20px 0 rgba(0,0,0,.3), 0 0 0 1px rgba(0,0,0,.04);
+  border-top: 5px solid #232f3e;
+}
+
+.back {
+  box-shadow: 0 1px 20px 0 rgba(0,0,0,.3), 0 0 0 1px rgba(0,0,0,.04);
+  transform: rotateX(180deg);
+  border-top: 5px solid #232f3e;
+}
+
+.cardQuestion, .cardAnswer {
+  margin: 40px;
+}
+
+.cardAnswer {
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  color: #0073bb;
+  font-size: 28px;
+}
+
+.cardQuestion {
+  font-family: "ember-light", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  color: #232f3e;
+}
+
+/* end notification */
+#end-notification {
+  height: 300px;
+  width: 800px;
+  margin-top: 40px;
+  background: none;
+  display: none;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#end-notification p {
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  color: #232f3e;
+  font-size: 38px;
+}
+
+/* buttons */
+
+.button-container {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 40px;
+}
+
+.button-container button:nth-child(odd) {
+  margin-right: 20px;
+}
+
+.button-container button:nth-child(even) {
+  margin-left: 20px;
+}
+
+.button-container button {
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  padding: 8px 40px;
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+}
+
+#correctButton {
+  background: rgba(29, 129, 2, 0.9);
+  color: #fff;
+}
+
+#correctButton:hover {
+  background: rgba(29, 129, 2, 1.0)
+}
+
+#incorrectButton {
+  background: rgba(209, 50, 18, 0.9);
+  color: #fff;
+}
+
+#incorrectButton:hover {
+  background: rgba(209, 50, 18, 1.0);
+}
+
+#homeButton {
+  background: rgba(235, 95, 7, 0.9);
+  color: #fff;
+}
+
+#homeButton:hover {
+  background: rgba(235, 95, 7, 1.0);
+}
+
+#retryButton {
+  background: rgba(0, 115, 187, 0.9);
+  color: #fff;
+}
+
+#retryButton:hover {
+  background: rgba(0, 115, 187, 1.0);
+}
