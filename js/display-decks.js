@@ -32,8 +32,8 @@ function createDeckDisplay(){
 
     var editRow = document.createElement('div');
     editRow.className = 'card-edit';
-    var editButton = document.createElement('button');
-    editButton.textContent = 'edit';
+    var editButton = document.createElement('i');
+    editButton.classList = 'fas fa-cog';
     editButton.style.display = 'none';
     editRow.appendChild(editButton);
 
@@ -51,8 +51,13 @@ function createDeckDisplay(){
     var cardActionRow = document.createElement('div');
     cardActionRow.className = 'card-study';
     var cardCTA = document.createElement('h3');
-    cardCTA.textContent = 'Study this deck';
+    cardCTA.textContent = 'Study ';
     cardCTA.style.display = 'none';
+
+    var doubleArrow = document.createElement('i');
+    doubleArrow.classList = 'fas fa-angle-double-right';
+    cardCTA.appendChild(doubleArrow);
+
     cardActionRow.appendChild(cardCTA);
 
     cardContent.appendChild(displayName);
