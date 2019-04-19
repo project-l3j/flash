@@ -81,18 +81,19 @@ nav {
   align-items: center;
 }
 
-li {
+.primary-nav li {
   display: inline-block;
+  font-family: "ember-reg", Helvetica, Arial, sans-serif;
   margin: 0 20px;
 }
 
-a {
+.primary-nav a {
   text-decoration: none;
   color: white;
 }
 
-a:hover {
-  color: #eb5f07;
+.primary-nav a:hover {
+  color: #f8991d;
 }
 
 .secondary-nav {
