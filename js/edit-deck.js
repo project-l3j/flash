@@ -38,16 +38,12 @@ function loadCards() {
     card.setAttribute('data-id', i);
 
     // card info
-    var cardQuestion = document.createElement('input');
-    cardQuestion.setAttribute('type', 'textarea');
-    cardQuestion.setAttribute('placeholder', 'Enter card question...');
-    cardQuestion.setAttribute('value', cardsArray[i].cardQuestion);
-    cardQuestion.disabled = true;
-    var cardAnswer = document.createElement('input');
-    cardAnswer.setAttribute('type', 'text');
-    cardAnswer.setAttribute('placeholder', 'Enter card answer...');
-    cardAnswer.setAttribute('value', cardsArray[i].cardAnswer);
-    cardAnswer.disabled = true;
+    var cardQuestion = document.createElement('p');
+    cardQuestion.setAttribute('contentEditable', 'false');
+    cardQuestion.textContent = cardsArray[i].cardQuestion;
+    var cardAnswer = document.createElement('p');
+    cardAnswer.setAttribute('contentEditable', 'false');
+    cardAnswer.textContent = cardsArray[i].cardAnswer;
 
     // button container
     var buttonContainer = document.createElement('div');
@@ -125,8 +121,8 @@ function handleEditClick(event) {
   editButtonContainer.style.display = 'flex';
 
   // make inputs editable
-  cardAnswer.disabled = false;
-  cardQuestion.disabled = false;
+  cardAnswer.setAttribute('contentEditable', 'true');
+  cardQuestion.setAttribute('contentEditable', 'true');
 
   // switch edit button to save button
   thisEditButton.style.display = 'none';
@@ -146,11 +142,11 @@ function handleSaveClick(event) {
   let newQuestion = card.children[1];
 
   // store new card in deck in memory
-  editDeck.editCardFromDeck(id, newQuestion.value, newAnswer.value);
+  editDeck.editCardFromDeck(id, newQuestion.textContent, newAnswer.textContent);
 
   // disable inputs
-  newAnswer.disabled = true;
-  newQuestion.disabled = true;
+  newAnswer.setAttribute('contentEditable', 'false');
+  newQuestion.setAttribute('contentEditable', 'false');
 
   // hide save button, show edit button
   saveButton.style.display = 'none';
