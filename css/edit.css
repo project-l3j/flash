@@ -1,48 +1,127 @@
 /* Edit deck page styles */
 
-/* .secondary-nav {
+main {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  flex-flow: column;
   align-items: center;
-} */
+}
+
+/* deck name and description */
+
+.deck-meta h2 {
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  color: #aab7b8;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.deck-meta h3 {
+  font-family: "ember-reg", Helvetica, Arial, sans-serif;
+  color: #aab7b8;
+  font-size: 18px;
+}
+
+/* secondary nav delete buttons */
+.deck-buttons button {
+  cursor: pointer;
+  border: 1px solid #16191f;
+  border-radius: 2px;
+  padding: 8px 40px;
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #16191f;
+  background: none;
+}
+
+#delete-deck:hover {
+  background: #fafafa;
+}
 
 #confirm-delete {
   display: none;
+  border: 1px solid #d13212;
+  color: #d13212;
 }
 
+#confirm-delete:hover {
+  background: #fafafa;
+}
+
+/* cards list */
 #container {
-  margin: 100px auto;
+  margin: 40px auto;
 }
 
 .edit-container {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  width: 600px;
+  align-items: center;
+  width: 800px;
   margin: 40px auto;
+  background: #fff;
+  cursor: pointer;
 }
 
 .card {
   display: flex;
   flex-flow: column;
+  margin: 40px;
+}
+
+.card input {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+  font-size: 16px;
+  font-family: "ember-reg", Helvetica, Arial, sans-serif;
+  margin-bottom: 20px;
+  color: #16191f;
+}
+
+.card input[type="textarea"] {
+	resize: vertical;
+  overflow: scroll;
+  min-height: 30px;
+  max-height: 100px;
 }
 
 .button-container {
   display: none;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.button-container button {
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  padding: 8px 40px;
+  font-family: "ember-bold", Helvetica, Arial, sans-serif;
+  font-size: 16px;
 }
 
 .save-button {
   display: none;
 }
 
-.edit-button, .delete-button {
+.edit-button {
+  
 }
 
+.delete-button {
+
+}
+
+/* footer */
 footer {
   display: none;
   height: 80px;
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;

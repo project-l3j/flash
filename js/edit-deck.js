@@ -40,11 +40,13 @@ function loadCards() {
     // card info
     var cardQuestion = document.createElement('input');
     cardQuestion.setAttribute('type', 'textarea');
-    cardQuestion.setAttribute('placeholder', cardsArray[i].cardQuestion);
+    cardQuestion.setAttribute('placeholder', 'Enter card question...');
+    cardQuestion.setAttribute('value', cardsArray[i].cardQuestion);
     cardQuestion.disabled = true;
     var cardAnswer = document.createElement('input');
     cardAnswer.setAttribute('type', 'text');
-    cardAnswer.setAttribute('placeholder', cardsArray[i].cardAnswer);
+    cardAnswer.setAttribute('placeholder', 'Enter card answer...');
+    cardAnswer.setAttribute('value', cardsArray[i].cardAnswer);
     cardAnswer.disabled = true;
 
     // button container
@@ -120,7 +122,7 @@ function handleEditClick(event) {
   editContainer.removeEventListener('mouseleave', handleCardHoverEnd);
 
   // show edit container
-  editButtonContainer.style.display = 'block';
+  editButtonContainer.style.display = 'flex';
 
   // make inputs editable
   cardAnswer.disabled = false;
